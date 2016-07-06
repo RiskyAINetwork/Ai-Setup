@@ -13,10 +13,13 @@ if [ "$(uname)" == "Darwin" ]; then
     rm -rf GitPython
     echo 'Should be done.'
     clear
-    echo 'Cloning AI.'
-    git clone https://github.com/AI
-    echo 'Done.'
-    cd AI
+    echo 'Grabbing AI.'
+    git clone https://github.com/crazywolf132/AI
+    echo 'Grabbing Samantha'
+    git clone https://github.com/crazywolf132/Samantha
+    echo 'Grabbing Database'
+    git clone https://github.com/crazywolf132/Ai-DB
+    echo 'Finishing Install!'
     print 'Now going to install what is needed.'
     python start.py
 
@@ -36,9 +39,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo 'Should be done.'
     clear
     echo 'Cloning AI.'
-    git clone https://github.com/AI
-    echo 'Done.'
-    cd AI
+    git clone https://github.com/crazywolf132/AI
+    echo 'Grabbing Samantha'
+    git clone https://github.com/crazywolf132/Samantha
+    echo 'Grabbing Database'
+    git clone https://github.com/crazywolf132/Ai-DB
+    echo 'Finishing Install!'
     print 'Now going to install what is needed.'
     python start.py
     
