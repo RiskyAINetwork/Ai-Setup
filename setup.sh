@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 if [ "$(uname)" == "Darwin" ]; then
     echo 'System is MAC'
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -19,9 +17,19 @@ if [ "$(uname)" == "Darwin" ]; then
     git clone https://github.com/crazywolf132/Samantha
     echo 'Grabbing Database'
     git clone https://github.com/crazywolf132/Ai-DB
+    echo 'Making backup of setup files.'
+    git clone https://github.com/crazywolf132/Ai-Setup
+    clear
     echo 'Finishing Install!'
-    print 'Now going to install what is needed.'
-    python start.py
+    mv ./Samantha/* ./
+    rm -rf Samantha
+    echo 'Moved Samantha files.'
+    mv ./AI/* ./
+    rm -rf AI
+    echo 'Moved Ai files.'
+    clear
+    echo 'Install is now finished and Samantha is ready to go!'
+    python main.py
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo 'System is LINUX'
@@ -47,7 +55,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo 'Finishing Install!'
     print 'Now going to install what is needed.'
     python start.py
-    
+
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
     echo 'System is WINDOWS'
 fi
