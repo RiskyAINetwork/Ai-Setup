@@ -10,26 +10,6 @@ if [ "$(uname)" == "Darwin" ]; then
     cd ../
     rm -rf GitPython
     echo 'Should be done.'
-    clear
-    echo 'Grabbing AI.'
-    git clone https://github.com/crazywolf132/AI
-    echo 'Grabbing Samantha'
-    git clone https://github.com/crazywolf132/Samantha
-    echo 'Grabbing Database'
-    git clone https://github.com/crazywolf132/Ai-DB
-    echo 'Making backup of setup files.'
-    git clone https://github.com/crazywolf132/Ai-Setup
-    clear
-    echo 'Finishing Install!'
-    mv ./Samantha/* ./
-    rm -rf Samantha
-    echo 'Moved Samantha files.'
-    mv ./AI/* ./
-    rm -rf AI
-    echo 'Moved Ai files.'
-    clear
-    echo 'Install is now finished and Samantha is ready to go!'
-    python main.py
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo 'System is LINUX'

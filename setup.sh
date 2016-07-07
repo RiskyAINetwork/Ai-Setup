@@ -19,7 +19,11 @@ if [ "$(uname)" == "Darwin" ]; then
     echo ''
     echo 'Part 3 is done. Now to finish setting it all up.'
     echo ''
-    
+    mv ./Samantha/* ./
+    rm -rf Samantha
+    mv ./AI/* ./
+    rm -rf AI
+    echo 'All files are in the right places.'
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     clear
