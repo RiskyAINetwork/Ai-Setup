@@ -41,7 +41,7 @@ EOF
 printf "%sThis script will install the Samantha AI and it's dependencies.\n"
 
 # Ensure the use would like to start the install
-read -r -p "Would you like to continue? [y/N] " response
+read -r -p "${cyn}Would you like to continue? [y/N] ${end}" response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     printf "%sExcellent! ${red}Please do not exit this script until it is complete.${end}\n"
@@ -49,7 +49,7 @@ else
     exit 1
 fi
 
-printf "%s\nChecking for python...\n"
+printf "%s\n${mag}Checking for python...\n"
 if which python > /dev/null 2>&1;
 then
     printf "%s$(tput setaf 10)${grn}python is already installed, great job!${end}\n"
@@ -97,8 +97,8 @@ printf "%s${yel}Database retrieved${end}\n"
 
 # Install package to make Samantha speak
 printf "%s${mag}Installing ESPEAK${end}\n"
-sudo apt-get install espeak
-sudo apt-get install espeak python-espeak
+sudo apt-get install -y espeak
+sudo apt-get install -y espeak python-espeak
 printf "%s${yel}ESPEAK now installed${end}\n"
 
 
