@@ -114,8 +114,16 @@ printf "%s${yel}ESPEAK now installed${end}\n"
 
 printf "%s${mag}Installing all updates for R.A.I.N...${end}\n"
 printf "%s${cyn}This may take a while. Go grab a beer :)${end}\n"
-sudo -u $SUDO_USER apt-get update
-sudo -u $SUDO_USER sudo apt-get dist-upgrade
+pip install fuzzywuzzy
+pip install jsondb
+pip install jsondatabase
+pip install nltk
+pip install pymongo
+pip intall python-twitter
+pip install textblob
+pip install python-Levenshtein
+#sudo -u $SUDO_USER apt-get update
+#sudo -u $SUDO_USER sudo apt-get dist-upgrade
 printf "%s${yel}All done!${end}\n"
 
 # The mirror is now installed, yay!
@@ -134,5 +142,5 @@ cat << "EOF"
 EOF
 # ASCII art found on http://textart.io/
 sleep 10
-curl https://https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Finished.sh
+curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Finished.sh" > Finished.sh
 bash Finished.sh

@@ -40,7 +40,7 @@ printf "%s\n${mag}Moving files to new loacaionts...${end}\n"
 mkdir Installers
 cd Installers
 # Download different installer
-wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/done.sh
+curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/done.sh" > done.sh
 # Rename the installer so it seems normal
 mv ./done.sh ./install.sh
 # Make other direcotries based on the OS
@@ -48,13 +48,13 @@ if [ "$(uname)" == "Darwin" ]; then
 mkdir MAC
 cd MAC
 # Download mac installer
-wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh
+curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh" > mac.sh
 cd ../
 else
 mkdir LINUX
 cd LINUX
 # Download linux installer
-wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
+curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh" > linux.sh
 # CD out when done.
 fi
 cd ../../

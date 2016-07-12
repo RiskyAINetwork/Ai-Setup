@@ -134,5 +134,5 @@ cat << "EOF"
 EOF
 # ASCII art found on http://textart.io/
 sleep 10
-curl https://https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Finished.sh
+curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Finished.sh" > Finished.sh
 bash Finished.sh

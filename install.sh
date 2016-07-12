@@ -12,9 +12,9 @@ if [ "$(uname)" == "Darwin" ]; then
     # Echo for the logs.
     echo 'User is on MAC'
     # Download installer
-    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh
+    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh" > mac.sh
     # Download Start.sh
-    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh
+    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh" > Start.sh
     # Run installer
     bash mac.sh
 
@@ -31,9 +31,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Echo for the logs.
     echo 'User is on a LINUX.'
     # Download installer
-    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
+    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh" > linux.sh
     # Download Start.sh
-    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh
+    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh" > Start.sh
     # Run installer
     sudo bash linux.sh
 
