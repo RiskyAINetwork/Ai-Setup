@@ -16,13 +16,13 @@ cyn=$'\e[1;36m'
 end=$'\e[0m'
 
 # Ensure we are using sudo
-if [ "$(whoami)" = "root" ];
+if [ "$(whoami)" != "root" ];
 then
-	echo "This script cannot use root permissions, try: ./${0##*/} "
+	echo "This script requires root permissions, try: sudo ./${0##*/} "
 	exit 0
 fi
 
-printf "%s\n${red}User is on a MAC...${end}\n"
+printf "%s\n${red}User is on LINUX...${end}\n"
 
 cat << "EOF"
 R.A.I.N
@@ -49,12 +49,7 @@ else
     exit 1
 fi
 
-printf "%s\n${mag}Installing Homebrew...${end}\n"
-#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
-#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-printf "%s$(tput setaf 10)${yel}Homebrew is now installed!${end}"
-
-printf "%s\n${blu}Checking for python...\n"
+printf "%s\nChecking for python...\n"
 if which python > /dev/null 2>&1;
 then
     printf "%s$(tput setaf 10) ${grn}python is already installed, great job!${end}\n"
@@ -62,24 +57,34 @@ else
     # Install Python
     printf "%s${mag}Downloading and Installing python${end}\n"
     #Installing it...
-    brew install python
+    sudo apt-get install -y python
     #Finished installing
     printf "%s$(tput setaf 10)${yel}python is now installed!${end}\n"
 fi
 
 # Getting the code
-printf "%s\n${mag}Cloning Git Repo...${end}\n"
-cd
-#Going to delete the files if they exist
-rm -rf Samantha
-git clone https://github.com/crazywolf132/Samantha.git
-printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
+printf "%s\n${mag}Cloning Git Repo${end}\n"
+cd /home/$SUDO_USER
+#Just checking if the files exist so it doesnt have heaps...
+if [ -d "samantha" ]; then
+  printf "%s\n$(tput setaf 10)${yel}Samantha is already downloaded${end}\n"
+fi
+if [ ! -d "samantha" ]; then
+  sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Samantha.git
+  printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
+fi
+if [ -d "Samantha" ]; then
+  printf "%s\n$(tput setaf 10)${yel}Samantha is already downloaded${end}\n"
+fi
+if [ ! -d "Samantha" ]; then
+  sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Samantha.git
+  printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
+fi
 
 # Installing dependencies.
-printf "%s${mag}Cloning Git Python...${end}\n"
-cd
-rm -rf GitPython
-git clone https://github.com/gitpython-developers/GitPython.git
+print "%s${mag}Cloning Git Python${end}\n"
+cd /home/$SUDO_USER
+sudo -u $SUDO_USER git clone https://github.com/gitpython-developers/GitPython.git
 # Done downloading
 printf "%s\n$(tput setaf 10)${yel}Git python is now downloaded!${end}\n"
 # Begin install
@@ -95,28 +100,23 @@ rm -R GitPython
 cd Samantha
 
 # Download Database
-printf "%s${mag}Grabbing Database...${end}\n"
-git clone https://github.com/crazywolf132/Ai-DB
-printf "%s\n$(tput setaf 10)${yel}Database installed and ready to use.${end}\n"
+printf "%s${mag}Grabbing Database${end}\n"
+sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Ai-DB
+printf "%s${yel}Database retrieved${end}\n"
 
 
 # Install package to make Samantha speak
-printf "%s${mag}Installing ESPEAK...${end}\n"
-brew install espeak
-print "%s${yel}ESPEAK now installed.${end}\n"
+printf "%s${mag}Installing ESPEAK${end}\n"
+sudo apt-get install espeak
+sudo apt-get install espeak python-espeak
+printf "%s${yel}ESPEAK now installed${end}\n"
 
 
 printf "%s${mag}Installing all updates for R.A.I.N...${end}\n"
 printf "%s${cyn}This may take a while. Go grab a beer :)${end}\n"
-pip install fuzzywuzzy
-pip install jsondb
-pip install jsondatabase
-pip install nltk
-pip install pymongo
-pip install python-twitter
-pip install textblob
-pip install python-Levenshtein
-printf "%s${grn}Dependencies installed!${end}"
+sudo -u $SUDO_USER apt-get update
+sudo -u $SUDO_USER sudo apt-get dist-upgrade
+printf "%s${yel}All done!${end}\n"
 
 # The mirror is now installed, yay!
 cat << "EOF"
