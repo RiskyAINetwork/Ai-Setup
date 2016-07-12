@@ -70,21 +70,21 @@ if [ -d "samantha" ]; then
   printf "%s\n$(tput setaf 10)${yel}Samantha is already downloaded${end}\n"
 fi
 if [ ! -d "samantha" ]; then
-  sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Samantha.git
+  git clone https://github.com/crazywolf132/Samantha.git
   printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
 fi
 if [ -d "Samantha" ]; then
   printf "%s\n$(tput setaf 10)${yel}Samantha is already downloaded${end}\n"
 fi
 if [ ! -d "Samantha" ]; then
-  sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Samantha.git
+  git clone https://github.com/crazywolf132/Samantha.git
   printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
 fi
 
 # Installing dependencies.
 printf "%s${mag}Cloning Git Python${end}\n"
 cd /home/$SUDO_USER
-sudo -u $SUDO_USER git clone https://github.com/gitpython-developers/GitPython.git
+git clone https://github.com/gitpython-developers/GitPython.git
 # Done downloading
 printf "%s\n$(tput setaf 10)${yel}Git python is now downloaded!${end}\n"
 # Begin install
@@ -101,7 +101,7 @@ cd Samantha
 
 # Download Database
 printf "%s${mag}Grabbing Database${end}\n"
-sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Ai-DB
+git clone https://github.com/crazywolf132/Ai-DB
 printf "%s${yel}Database retrieved${end}\n"
 
 
