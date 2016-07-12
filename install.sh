@@ -15,6 +15,9 @@ if [ "$(uname)" == "Darwin" ]; then
     curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh" > mac.sh
     # Download Start.sh
     curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh" > Start.sh
+
+    # Clear terminal after download    
+    clear
     # Run installer
     bash mac.sh
 
@@ -34,6 +37,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh" > linux.sh
     # Download Start.sh
     curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh" > Start.sh
+    
+    # Clear terminal after download
+    clear
     # Run installer
     sudo bash linux.sh
 
