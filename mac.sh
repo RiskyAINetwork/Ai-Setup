@@ -103,7 +103,7 @@ printf "%s\n$(tput setaf 10)${yel}Database installed and ready to use.${end}\n"
 # Install package to make Samantha speak
 printf "%s${mag}Installing ESPEAK...${end}\n"
 brew install espeak
-print "%s${yel}ESPEAK now installed.${end}\n"
+printf "%s${yel}ESPEAK now installed.${end}\n"
 
 
 printf "%s${mag}Installing all updates for R.A.I.N...${end}\n"
@@ -124,7 +124,7 @@ cat << "EOF"
         |        R.A.I.N is now installed!
        / \
       / _ \      Once you fill out your config you can start the Ai with:
-     |.o '.|     sudo bash Finish.sh
+     |.o '.|     sudo bash Start.sh
      |'._.'|
      |     |
    ,'|  |  |`.
@@ -133,4 +133,6 @@ cat << "EOF"
 
 EOF
 # ASCII art found on http://textart.io/
-exit 0
+sleep 10
+curl https://https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Finished.sh
+bash Finished.sh

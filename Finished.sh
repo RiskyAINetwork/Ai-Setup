@@ -58,5 +58,9 @@ wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
 # CD out when done.
 fi
 cd ../../
-
 printf "%s$(tput setaf 10)${yel}Finished moving.!${end}"
+
+printf "%s${red}Next time please use Start.sh..."
+sleep 10
+printf "%s${grn}Going to start application now."
+sleep 4

@@ -8,13 +8,13 @@ if [ "$(uname)" == "Darwin" ]; then
     	exit 0
     fi
 
-    # Install wget
-    brew install wget
     clear
     # Echo for the logs.
     echo 'User is on MAC'
     # Download installer
-    https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh
+    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh
+    # Download Start.sh
+    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh
     # Run installer
     bash mac.sh
 
@@ -27,13 +27,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   	 exit 0
     fi
 
-    # Install wget
-    sudo apt-get install -y wget
     clear
     # Echo for the logs.
     echo 'User is on a LINUX.'
     # Download installer
-    wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
+    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
+    # Download Start.sh
+    curl https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh
     # Run installer
     sudo bash linux.sh
 

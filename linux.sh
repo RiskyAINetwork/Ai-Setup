@@ -133,4 +133,6 @@ cat << "EOF"
 
 EOF
 # ASCII art found on http://textart.io/
-exit 0
+sleep 10
+curl https://https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Finished.sh
+bash Finished.sh
