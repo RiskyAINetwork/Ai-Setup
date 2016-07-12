@@ -16,9 +16,9 @@ cyn=$'\e[1;36m'
 end=$'\e[0m'
 
 # Ensure we are using sudo
-if [ "$(whoami)" != "root" ];
+if [ "$(whoami)" = "root" ];
 then
-	echo "This script requires root permissions, try: sudo ./${0##*/} "
+	echo "This script cannot use root permissions, try: ./${0##*/} "
 	exit 0
 fi
 
@@ -47,6 +47,11 @@ else
     exit 1
 fi
 
+printf "%s\n${mag}Installing Homebrew...${end}\n"
+#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+printf "%s$(tput setaf 10)Homebrew is now installed!${end}"
+
 printf "%s\nChecking for python...\n"
 if which python > /dev/null 2>&1;
 then
@@ -55,41 +60,31 @@ else
     # Install Python
     printf "%s${blu}Downloading and Installing python${end}\n"
     #Installing it...
-    sudo apt-get install -y python
+    brew install python
     #Finished installing
     printf "%s$(tput setaf 10)python is now installed!${end}\n"
 fi
 
 # Getting the code
-printf "%s\n${blu}Cloning Git Repo${end}\n"
-cd /home/$SUDO_USER
-#Just checking if the files exist so it doesnt have heaps...
-if [ -d "samantha" ]; then
-  printf "%s\n$(tput setaf 10)Samantha is already downloaded${end}\n"
-fi
-if [ ! -d "samantha" ]; then
-  sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Samantha.git
-  printf "%s\n$(tput setaf 10)Samantha is now downloaded${end}\n"
-fi
-if [ -d "Samantha" ]; then
-  printf "%s\n$(tput setaf 10)Samantha is already downloaded${end}\n"
-fi
-if [ ! -d "Samantha" ]; then
-  sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Samantha.git
-  printf "%s\n$(tput setaf 10)Samantha is now downloaded${end}\n"
-fi
+printf "%s\n${blu}Cloning Git Repo...${end}\n"
+cd
+#Going to delete the files if they exist
+rm -rf Samantha
+git clone https://github.com/crazywolf132/Samantha.git
+printf "%s\n$(tput setaf 10)Samantha is now downloaded${end}\n"
 
 # Installing dependencies.
-print "%s${blu}Cloning Git Python${end}\n"
-cd /home/$SUDO_USER
-sudo -u $SUDO_USER git clone https://github.com/gitpython-developers/GitPython.git
+printf "%s${blu}Cloning Git Python...${end}\n"
+cd
+rm -rf GitPython
+git clone https://github.com/gitpython-developers/GitPython.git
 # Done downloading
 printf "%s\n$(tput setaf 10)Git python is now downloaded!${end}\n"
 # Begin install
 cd GitPython
 python setup.py install
 # Finished install
-print "%s\n$(tput setaf 10)Git python is now installed!${end}\n"
+printf "%s\n$(tput setaf 10)Git python is now installed!${end}\n"
 # Now removing the remains
 cd ../
 rm -R GitPython
@@ -98,20 +93,26 @@ rm -R GitPython
 cd Samantha
 
 # Download Database
-printf "%s${blu}Grabbing Database${end}\n"
-sudo -u $SUDO_USER git clone https://github.com/crazywolf132/Ai-DB
+printf "%s${blu}Grabbing Database$...{end}\n"
+git clone https://github.com/crazywolf132/Ai-DB
 
 
 # Install package to make Samantha speak
-printf "%s${blu}Installing espeak${end}\n"
-sudo apt-get install espeak
-sudo apt-get install espeak python-espeak
+printf "%s${blu}Installing espeak...${end}\n"
+brew install espeak
 
 
 printf "%s${blu}Installing all updates for R.A.I.N...${end}\n"
 printf "%s${yel}This may take a while. Go grab a beer :)${end}\n"
-sudo -u $SUDO_USER apt-get update
-sudo -u $SUDO_USER sudo apt-get dist-upgrade
+pip install fuzzywuzzy
+pip install jsondb
+pip install jsondatabase
+pip install nltk
+pip install pymongo
+pip install python-twitter
+pip install textblob
+pip install python-Levenshtein
+
 
 # The mirror is now installed, yay!
 cat << "EOF"
@@ -129,70 +130,3 @@ cat << "EOF"
 EOF
 # ASCII art found on http://textart.io/
 exit 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if [ "$(uname)" == "Darwin" ]; then
-    if [ "$(id -u)" = "0" ]; then
-    echo "This script cannot be run as root" 1>&2
-    exit 1
-    fi
-    echo 'System is MAC'
-
-
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    if [[ $EUID -ne 0 ]]; then
-    echo "This script must be run as root" 1>&2
-    exit 1
-    fi
-    echo 'System is LINUX'
-
-
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-
-    echo 'System is WINDOWS'
-    echo 'User will not be able to install on this device.'
-
-
-fi
