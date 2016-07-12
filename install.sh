@@ -14,6 +14,8 @@ if [ "$(uname)" == "Darwin" ]; then
     # Echo for the logs.
     echo 'User is on MAC'
     # Download installer
+    https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh
+    # Run installer
     bash mac.sh
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -31,6 +33,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Echo for the logs.
     echo 'User is on a LINUX.'
     # Download installer
+    wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
+    # Run installer
     sudo bash linux.sh
 
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
