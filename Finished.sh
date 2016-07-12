@@ -31,24 +31,29 @@ printf "%s\n${mag}Removing any folders that shouldnt be here...${end}\n"
 rm -rf ./Ai-Setup
 rm -rf ./GitPython
 rm -rf ./Installers
+rm -rf ./mac.sh
+rm -rf ./linux.sh
 printf "%s$(tput setaf 10)${yel}Done!${end}"
 
 printf "%s\n${mag}Moving files to new loacaionts...${end}\n"
+# Make installer directory
 mkdir Installers
-mv ./install.sh ./Installers/install.sh
 cd Installers
+# Download different installer
+wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/done.sh
+# Rename the installer so it seems normal
+mv ./done.sh ./install.sh
+# Make other direcotries.
 mkdir MAC
 mkdir LINUX
+cd MAC
+# Download mac installer
+wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh
 cd ../
-if [ -f "mac.sh" ];
-then
-  mv ./mac.sh ./Installers/MAC/mac.sh
-else
-  printf "%s${yel}No mac install found.${end}\n"
-if [ -f "linux.sh"];
-then
-  mv ./linux.sh ./Installers/LINUX/installer.sh
-else
-  printf "%s${yel}No Linux install found.${end}\n"
+cd LINUX
+# Download linux installer
+wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
+# CD out when done.
+cd ../../
 
 printf "%s$(tput setaf 10)${yel}Finished moving.!${end}"
