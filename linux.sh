@@ -82,7 +82,7 @@ if [ ! -d "Samantha" ]; then
 fi
 
 # Installing dependencies.
-print "%s${mag}Cloning Git Python${end}\n"
+printf "%s${mag}Cloning Git Python${end}\n"
 cd /home/$SUDO_USER
 sudo -u $SUDO_USER git clone https://github.com/gitpython-developers/GitPython.git
 # Done downloading
