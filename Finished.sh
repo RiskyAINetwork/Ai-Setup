@@ -43,17 +43,20 @@ cd Installers
 wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/done.sh
 # Rename the installer so it seems normal
 mv ./done.sh ./install.sh
-# Make other direcotries.
+# Make other direcotries based on the OS
+if [ "$(uname)" == "Darwin" ]; then
 mkdir MAC
-mkdir LINUX
 cd MAC
 # Download mac installer
 wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/mac.sh
 cd ../
+else
+mkdir LINUX
 cd LINUX
 # Download linux installer
 wget https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/linux.sh
 # CD out when done.
+fi
 cd ../../
 
 printf "%s$(tput setaf 10)${yel}Finished moving.!${end}"
