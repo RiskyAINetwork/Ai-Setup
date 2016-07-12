@@ -109,7 +109,7 @@ pip install jsondb
 pip install jsondatabase
 pip install nltk
 pip install pymongo
-pip intall python-twitter
+pip install python-twitter
 pip install textblob
 pip install python-Levenshtein
 #sudo -u $SUDO_USER apt-get update
