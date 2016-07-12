@@ -64,7 +64,7 @@ fi
 
 # Getting the code
 printf "%s\n${mag}Cloning Git Repo${end}\n"
-cd /home/$SUDO_USER
+cd 
 #Just checking if the files exist so it doesnt have heaps...
 if [ -d "samantha" ]; then
   printf "%s\n$(tput setaf 10)${yel}Samantha is already downloaded${end}\n"
@@ -83,7 +83,7 @@ fi
 
 # Installing dependencies.
 printf "%s${mag}Cloning Git Python${end}\n"
-cd /home/$SUDO_USER
+cd 
 git clone https://github.com/gitpython-developers/GitPython.git
 # Done downloading
 printf "%s\n$(tput setaf 10)${yel}Git python is now downloaded!${end}\n"

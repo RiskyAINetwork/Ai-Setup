@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf Start.sh
 if [ "$(uname)" == "Darwin" ]; then
   # Making sure the user is not root or the script wont work.
     if [ "$(whoami)" = "root" ];
@@ -7,6 +8,8 @@ if [ "$(uname)" == "Darwin" ]; then
     	echo "This script cannot use root permissions, try: ./${0##*/} "
     	exit 0
     fi
+
+    rm -rf mac.sh
 
     clear
     # Echo for the logs.
@@ -29,6 +32,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   	 echo "This script requires root permissions, try: sudo ./${0##*/} "
   	 exit 0
     fi
+
+    rm -rf linux.sh
 
     clear
     # Echo for the logs.
