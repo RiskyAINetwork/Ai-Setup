@@ -52,7 +52,7 @@ fi
 printf "%s\nChecking for python...\n"
 if which python > /dev/null 2>&1;
 then
-    printf "%s$(tput setaf 10) ${grn}python is already installed, great job!${end}\n"
+    printf "%s$(tput setaf 10)${grn}python is already installed, great job!${end}\n"
 else
     # Install Python
     printf "%s${mag}Downloading and Installing python${end}\n"
@@ -66,7 +66,7 @@ fi
 printf "%s\n${mag}Cloning Git Repo${end}\n"
 cd
 # Going to delete the files and folders if they exist
-rm -rf Samantha
+sudo rm -rf Samantha
 git clone https://github.com/crazywolf132/Samantha.git
 printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
 
