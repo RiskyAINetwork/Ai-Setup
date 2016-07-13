@@ -58,9 +58,10 @@ curl -L "https://raw.githubusercontent.com/RiskyAINetwork/Ai-Setup/master/linux.
 # CD out when done.
 fi
 cd ../../
-printf "%s$(tput setaf 10)${yel}Finished moving.!${end}"
+printf "%s$(tput setaf 10)${yel}Finished moving.!${end}\n"
 
-printf "%s${red}Next time please use Start.sh..."
+printf "%s${red}Next time please use Start.sh...${end}\n"
 sleep 10
-printf "%s${grn}Going to start application now."
+printf "%s${grn}Going to start application now.${end}\n"
 sleep 4
+
