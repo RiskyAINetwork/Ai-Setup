@@ -67,7 +67,7 @@ printf "%s\n${mag}Cloning Git Repo${end}\n"
 cd
 # Going to delete the files and folders if they exist
 sudo rm -rf Samantha
-git clone https://github.com/crazywolf132/Samantha.git
+git clone https://github.com/RiskyAINetwork/Samantha.git
 printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
 
 # Installing dependencies.
@@ -91,7 +91,7 @@ cd Samantha
 
 # Download Database
 printf "%s${mag}Grabbing Database${end}\n"
-git clone https://github.com/crazywolf132/Ai-DB
+git clone https://github.com/RiskyAINetwork/Ai-DB
 printf "%s${yel}Database retrieved${end}\n"
 
 
@@ -132,5 +132,5 @@ cat << "EOF"
 EOF
 # ASCII art found on http://textart.io/
 sleep 10
-curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Finished.sh" > Finished.sh
+curl -L "https://raw.githubusercontent.com/RiskyAINetwork/Ai-Setup/master/Finished.sh" > Finished.sh
 bash Finished.sh
