@@ -51,11 +51,12 @@ cd LINUX
 curl -L "https://raw.githubusercontent.com/RiskyAINetwork/Ai-Setup/master/linux.sh" > linux.sh
 # CD out when done.
 fi
-cd ../../
+cd /Samantha
+curl -L "https://raw.githubusercontent.com/RiskyAINetwok/Ai-Setup/master/Start.sh" > Start.sh
 printf "%s$(tput setaf 10)${yel}Finished moving.!${end}\n"
 
 printf "%s${red}Next time please use Start.sh...${end}\n"
 sleep 10
 printf "%s${grn}Going to start application now.${end}\n"
 sleep 4
-
+bash Start.sh
