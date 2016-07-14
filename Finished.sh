@@ -9,12 +9,6 @@ mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
 
-# Ensure we are using sudo
-if [ "$(whoami)" = "root" ];
-then
-	echo "This script cannot use root permissions, try: ./${0##*/} "
-	exit 0
-fi
 
 printf "%sThis script will remove all the uneeded files and clean up the code to make it nice.\n"
 

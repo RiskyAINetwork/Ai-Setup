@@ -53,7 +53,7 @@ printf "%s\n${mag}Checking for python...\n"
 sudo apt-get install -y git
 if which python > /dev/null 2>&1;
 then
-    sudo apt-get install python-pip
+    sudo apt-get install -y python-pip
     printf "%s$(tput setaf 10)${grn}python is already installed, great job!${end}\n"
 else
     # Install Python
