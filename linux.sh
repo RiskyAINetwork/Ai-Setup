@@ -74,20 +74,20 @@ git clone https://github.com/RiskyAINetwork/Samantha.git
 printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
 
 # Installing dependencies.
-printf "%s${mag}Cloning Git Python${end}\n"
+printf "%s${mag}Cloning Git Python...${end}\n"
 cd 
 rm -rf GitPython
-git clone https://github.com/gitpython-developers/GitPython.git
+#git clone https://github.com/gitpython-developers/GitPython.git
 # Done downloading
 printf "%s\n$(tput setaf 10)${yel}Git python is now downloaded!${end}\n"
 # Begin install
-cd GitPython
-python setup.py install
+#cd GitPython
+#python setup.py install
 # Finished install
 printf "%s\n$(tput setaf 10)${yel}Git python is now installed!${end}\n"
 # Now removing the remains
-cd ../
-rm -R GitPython
+#cd ../
+#rm -R GitPython
 
 
 cd Samantha
