@@ -1,2 +1,2 @@
-#!/bin/bash
-clear && python application.py
+clear
+python application.py
