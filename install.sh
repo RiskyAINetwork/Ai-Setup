@@ -16,8 +16,6 @@ if [ "$(uname)" == "Darwin" ]; then
     echo 'User is on MAC'
     # Download installer
     curl -L "https://raw.githubusercontent.com/RiskyAINetwork/Ai-Setup/master/mac.sh" > mac.sh
-    # Download Start.sh
-    curl -L "https://raw.githubusercontent.com/RiskyAINetwork/Ai-Setup/master/Start.sh" > Start.sh
 
     # Clear terminal after download    
     clear
@@ -40,8 +38,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo 'User is on a LINUX.'
     # Download installer
     curl -L "https://raw.githubusercontent.com/RiskyAINetwork/Ai-Setup/master/linux.sh" > linux.sh
-    # Download Start.sh
-    curl -L "https://raw.githubusercontent.com/RiskyAINetwork/Ai-Setup/master/Start.sh" > Start.sh
     
     # Clear terminal after download
     clear
