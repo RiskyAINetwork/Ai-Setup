@@ -172,9 +172,8 @@ if [ "$(uname)" == "Darwin" ]; then
             clear
 	    python application.py
 	else
-	    printf "%s\n${yel}The AI is already installed...${end}\n"
+	
 	fi
-    fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Detect if they are in root mode.
     if [ "$(whoami)" != "root" ];
@@ -335,7 +334,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
             clear
             python application.py
         else
-            printf "%s\n${yel}The AI is already installed...${end}\n"
+
         fi
     fi
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
