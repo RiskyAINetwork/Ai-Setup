@@ -274,7 +274,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         curl -L "https://raw.githubusercontent.com/RiskyAINetwork/AI-Setup/master/INSTALL" > INSTALL
         #Going to now run the installer.
         printf "%s\n${mag}Going to now install it."
-        if [-e "INSTALL" ];
+        if [ -e "INSTALL" ];
         then    
             # Ensure the user would like to install.
             read -r -p "${red}Would you like to continue with the install? [y/N] ${end}" response
