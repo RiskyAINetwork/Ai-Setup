@@ -54,6 +54,7 @@ sudo apt-get install -y git
 if which python > /dev/null 2>&1;
 then
     sudo apt-get install python-pip
+    pip install --upgrade pip
     printf "%s$(tput setaf 10)${grn}python is already installed, great job!${end}\n"
 else
     # Install Python
@@ -61,6 +62,7 @@ else
     #Installing it...
     sudo apt-get install -y python
     sudo apt-get install -y python-pip
+    pip install --upgrade pip
     #Finished installing
     printf "%s$(tput setaf 10)${yel}python is now installed!${end}\n"
 fi
@@ -76,19 +78,10 @@ printf "%s\n$(tput setaf 10)${yel}Samantha is now downloaded${end}\n"
 # Installing dependencies.
 printf "%s${mag}Cloning Git Python...${end}\n"
 cd 
-rm -rf GitPython
-#git clone https://github.com/gitpython-developers/GitPython.git
-# Done downloading
 printf "%s\n$(tput setaf 10)${yel}Git python is now downloaded!${end}\n"
 # Begin install
-#cd GitPython
-#python setup.py install
-# Finished install
+pip install gitpython
 printf "%s\n$(tput setaf 10)${yel}Git python is now installed!${end}\n"
-# Now removing the remains
-#cd ../
-#rm -R GitPython
-
 
 cd Samantha
 
