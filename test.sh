@@ -38,8 +38,142 @@ if [ "$(uname)" == "Darwin" ]; then
         cd Samantha
         # Check if the INSTALL file exists.
         printf "%s\n${mag}Checking if the INSTALL file exists.${end}\n"
+	if [ -e "INSTALL" ];
+	then
+	    printf "%s$(tput setaf 10)${yel}File is here. Will begin install now.${end}\n"
+	    # Deleteing file so it doesnt re-istall next time.
+	    rm -rf INSTALL
+	    read -r -p "${red}Would you like to continue with the install? [y/N] ${end}" response
+	    if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+	    then
+		printf "%s\nExcellent! ${red}Please do not exist this script until it is complete.${end}\n"
+	    else
+		exit 1
+	    fi
 
-
+	    # Begin install.
+	    printf "%s\n${mag}Going to install Git even if you have it...${end}\n"
+	    sudo apt-get install -y git
+	    printf "%s\n${mag}Checking for python...${end}\n"
+	    if which python > /dev/null 2>&1;
+	    then
+	    	sudo apt-get install -y python-pip
+	    	pip install --upgrade pip
+	    	printf "%s$(tput setaf 10)${grn}Python is already installed, great job!${end}\n"
+	    else
+	    	# Installing python
+	    	printf "%s\n${mag}Downloading and installing python.${end}\n"
+	    	# Installing it.
+	    	sudo apt-get install -y python
+	    	sudo apt-get install -y python-pip
+	    	# Finised installing it.
+	    	printf "%s$(tput setaf 10)${yel}Python is now installed!${end}\n"
+	    fi
+	    # Now going to download all the requirements for it first.
+	    printf "%s\n${mag}Going to download all the dependancies then the Ai.${end}\n"
+	    pip install fuzzywuzzy
+	    pip install jsondb
+	    pip install jsondatabase
+	    pip install nltk
+	    pip install pymongo
+	    pip install python-twitter
+	    pip install textblob
+	    pip install python-Levensthein
+	    printf "%s$(tput setaf 10)${yel}Done with part1. ${end}\n"
+	    printf "%s\n${mag}Downloading part 2.${end}\n"
+	    sudo apt-get install -y espeak
+	    sudo apt-get install -y espeak python-espeak
+	    printf "%s$(tput setaf 10)${yel}Done with part 2.${end}\n"
+	    printf "%s\n${mag}Last part starting.${end}\n"
+	    git clone https://github.com/RiskyAINetwork/Ai-DB.git
+	    printf "%s$(tput setaf 10)${yel}Done.${end}\n"
+	    printf "%s\n${mag}Going to now download the AI.${end}\n"
+	    git clone https://github.com/RiskyAINetwork/Samanatha.git
+	    printf "%s$(tput setaf 10)${yel}Finoished downloading AI."
+	    printf "%s\n${mag}Now going to move the Ai files to where they need to be.${end}\n"
+	    mv ./Samantha/* ./
+	    curl -L "https://raw.githubusercontent.com/RiskyAINetwork/AI-Setup/master/Update.sh" > Update.sh
+	    printf "%s$(tput setaf 10)${yel}Finished.${end}\n"
+	    # Should probably add the script to then make it start the Ai on @reboot.
+	    printf "%s\n${mag}Now going to run the Ai.${end}\n"
+	    sleep 20
+	    clear
+	    python application.py
+    
+        else
+		printf "%s$(tput setaf 10)${yel}File does not exist. AI is already installed.${end}\n"
+		sleep 10
+		clear
+		printf "%s\n${mag}Will now begin the application.${end}\n"
+        fi
+    else
+	printf "%s$(tput setaf 10)${yel}Could not find the folder. Going to create it.${end}\n"
+	mkdir Samantha
+	printf "%s$(tput setaf 10)${yel}Made the folder. Going to install the required.${end}\n"
+	cd Samantha
+	curl -L "https://raw.githubusercontent.com/RiskyAINetwork/AI-Setup/master/INSTALL" > INSTALL
+	#Going to now run the installer.
+	printf "%s\n${mag}Going to now install it."
+	if [ -e "INSTALL" ];
+	then
+	    # Ensure the user would like to install.
+	    read -r -p "${red}Would you like to continue with the install? [y/N] ${end}" response
+	    if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+	    then
+		printf "%s\nExcellent! ${red}Please do not exit this script until it is complete.${end}\n"
+	    else
+		exit 1
+	    fi
+	    
+	    # Begin install.
+	    printf "%s\n${mag}Going to install Git even if you already have it...${end}\n"
+	    sudo apt-get install -y git
+	    printf "%s\n${mag}Checking for python...${end}\n"
+	    if which python > /dev/null 2>&1;
+	    then
+		sudo apt-get install -y python-pip
+		pip install --upgrade pip
+		printf "%s$(tput setaf 10)${grn}Python is already installed, great job!${end}\n"
+	    else
+		# Install python
+		printf "%s\n${mag}Downloading and installing python.${end}\n"
+		# Installing it.
+		sudo apt-get install -y python
+		sudo apt-get install -y python-pip
+		pip install --upgrade pip
+		# Finished installing it.
+		printf "%s$(tput setaf 10)${yel}Python is now installed!${end}\n"
+	    fi
+	    # Now going to download all the requirements for it first.
+	    printf "%s\n${mag}Going to download all dependancies then the AI.${end}\n"
+	    pip install fuzzywuzzy
+	    pip install jsondb
+	    pip install jsondatabase
+	    pip install nltk
+	    pip install pymongo
+	    pip install python-twitter
+	    pip install textblob
+	    pip install python-Lvensthein
+	    printf "%s$(tput setaf 10)${yel}Done with part 1.${end}\n"
+	    printf "%s\n${mag}Downloading part 2.${end}\n"
+	    sudo apt-get install -y espeak
+	    sudo apt-get install -y espeak python-espeak
+	    printf "%s$(tput setaf 10)${yel}Done with part 2.${end}\n"
+	    printf "%s\n${mag}Last part starting.${end}\n"
+	    git clone https://github.com/RiskyAINetwork/Ai-DB.git
+	    printf "%s$(tput setaf 10)${yel}Done.${end}\n"
+	    printf "%s\n${mag}Now goiong to move the Ai files to where they need to be.${end}\n"
+	    mv ./Samantha/* ./
+	    curl -L "https://raw.githubusercontent.com/RiskyAINetwork/AI_Setup/master/Update.sh" > Update.sh
+	    printf "%s$(tput setaf 10)${yel}Finished.${end}\n"
+	    # Should probably add the script to then make it start on @reboot
+	    printf "%s\n${mag}Now going to run the Ai.${end}\n"
+	    sleep 20
+            clear
+	    python application.py
+	else
+	
+	fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Detect if they are in root mode.
     if [ "$(whoami)" != "root" ];
@@ -82,7 +216,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
             printf "%s\n${mag}Checking for python...${end}\n"
             if which python > /dev/null 2>&1;
             then
-                sudo apt0get install -y python-pip
+                sudo apt-get install -y python-pip
                 pip install --upgrade pip
                 printf "%s$(tput setaf 10)${grn}Python is already installed, great job!${end}\n"
             else
@@ -92,7 +226,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
                 sudo apt-get install -y python
                 sudo apt-get install -y python-pip
                 # Finished install it.
-                printf "%s$(tput setaf 10)${yel}Python is now install!${end}\n"
+                printf "%s$(tput setaf 10)${yel}Python is now installed!${end}\n"
             fi
             # Now going to download all the requirements for it first.
             printf "%s\n${mag}Going to download all the dependancies then the Ai.${end}\n"
@@ -112,7 +246,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
             printf "%s\n${mag}Last part starting.${end}\n"
             git clone https://github.com/RiskyAINetwork/Ai-DB.git
             printf "%s$(tput setaf 10)${yel}Done.${end}\n"
-            printf "s\n${mag}Going to now download the AI.${end}\n"
+            printf "%s\n${mag}Going to now download the AI.${end}\n"
             git clone https://github.com/RiskyAINetwork/Samantha.git
             printf "%s$(tput setaf 10)${yel}Finished downloading the AI.${end}\n"
             printf "%s\n${mag}Now going to move the Ai files to where they need to be.${end}\n"
