@@ -53,19 +53,16 @@ if [ "$(uname)" == "Darwin" ]; then
 
 	    # Begin install.
 	    printf "%s\n${mag}Going to install Git even if you have it...${end}\n"
-	    sudo apt-get install -y git
+	    brew install git
 	    printf "%s\n${mag}Checking for python...${end}\n"
 	    if which python > /dev/null 2>&1;
 	    then
-	    	sudo apt-get install -y python-pip
-	    	pip install --upgrade pip
 	    	printf "%s$(tput setaf 10)${grn}Python is already installed, great job!${end}\n"
 	    else
 	    	# Installing python
 	    	printf "%s\n${mag}Downloading and installing python.${end}\n"
 	    	# Installing it.
-	    	sudo apt-get install -y python
-	    	sudo apt-get install -y python-pip
+        brew install python
 	    	# Finised installing it.
 	    	printf "%s$(tput setaf 10)${yel}Python is now installed!${end}\n"
 	    fi
@@ -99,7 +96,7 @@ if [ "$(uname)" == "Darwin" ]; then
 	    sleep 20
 	    clear
 	    python application.py
-    
+
         else
 		printf "%s$(tput setaf 10)${yel}File does not exist. AI is already installed.${end}\n"
 		sleep 10
@@ -124,10 +121,10 @@ if [ "$(uname)" == "Darwin" ]; then
 	    else
 		exit 1
 	    fi
-	    
+
 	    # Begin install.
 	    printf "%s\n${mag}Going to install Git even if you already have it...${end}\n"
-	    sudo apt-get install -y git
+	    brew install
 	    printf "%s\n${mag}Checking for python...${end}\n"
 	    if which python > /dev/null 2>&1;
 	    then
@@ -153,16 +150,16 @@ if [ "$(uname)" == "Darwin" ]; then
 	    pip install pymongo
 	    pip install python-twitter
 	    pip install textblob
-	    pip install python-Lvensthein
+	    pip install python-Levensthein
 	    printf "%s$(tput setaf 10)${yel}Done with part 1.${end}\n"
 	    printf "%s\n${mag}Downloading part 2.${end}\n"
-	    sudo apt-get install -y espeak
-	    sudo apt-get install -y espeak python-espeak
+	    brew install espeak
 	    printf "%s$(tput setaf 10)${yel}Done with part 2.${end}\n"
 	    printf "%s\n${mag}Last part starting.${end}\n"
 	    git clone https://github.com/RiskyAINetwork/Ai-DB.git
 	    printf "%s$(tput setaf 10)${yel}Done.${end}\n"
 	    printf "%s\n${mag}Now goiong to move the Ai files to where they need to be.${end}\n"
+      git clone https://github.com/RiskyAINetwork/Samantha.git
 	    mv ./Samantha/* ./
 	    curl -L "https://raw.githubusercontent.com/RiskyAINetwork/AI_Setup/master/Update.sh" > Update.sh
 	    printf "%s$(tput setaf 10)${yel}Finished.${end}\n"
@@ -275,7 +272,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         #Going to now run the installer.
         printf "%s\n${mag}Going to now install it."
         if [ -e "INSTALL" ];
-        then    
+        then
             # Ensure the user would like to install.
             read -r -p "${red}Would you like to continue with the install? [y/N] ${end}" response
             if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
