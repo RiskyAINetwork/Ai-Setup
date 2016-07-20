@@ -876,6 +876,8 @@ if [ "$(uname)" == "Darwin" ]; then
     clear
     python application.py
   fi
+fi
+fi
   #LINUX
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   clear
