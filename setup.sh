@@ -62,6 +62,20 @@ if [ "$(uname)" == "Darwin" ]; then
             # Going forth with the install if they responded with yes.
             # Going to check if any of the install proccess files exist.
             if [ -e "PART 1" ]; then
+              # Announce that we have found part 1.
+              printf "%s$(tput setaf 10) ${grn}We have found Part 1 of the installer!${end}\n"
+              # Announce we are starting part 1.
+              printf "%s${mag}Going to start Part 1 of the installtion${end}\n"
+              # Checking for python
+              printf "%s\n${cyn}Checking for python...\n"
+              # Install python no matter what.
+              brew install python
+              # Install git no matter what.
+              brew install git
+              # Install espeak even if they already have it.
+              brew install espeak
+              # Tell the user that part 1 is done.
+              printf "%s$(tput setaf 10)${yel}Finished installing Part 1 of the installtion${end}\n"
               # Seen as this file exists then we will run the installer from here.
               # Run part 1 of the installer.
               # Perform a check for python and brew and any other required files.
@@ -75,7 +89,14 @@ if [ "$(uname)" == "Darwin" ]; then
                 curl -L "" > PART 2
               fi
               # Run part 2 of the installer.
-
+              # Announce we are starting part 2.
+              printf "%s${mag}Going to start Part 2 of the installtion${end}\n"
+              cd
+              cd Samantha
+              git clone https://github.com/RiskyAINetwork/Samantha.git
+              mv ./Samantha/* ./
+              git clone https://github.com/RiskyAINetwork/Ai-DB.git
+              printf "%s$(tput setaf 10)${yel}Finished installing Part 2 of the installtion${end}\n"
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 2
               if [ -e "PART 3" ]; then
@@ -85,7 +106,64 @@ if [ "$(uname)" == "Darwin" ]; then
                 curl -L "" > PART 3
               fi
               # Run part 3 of the installer.
+              # Announce we are starting part 3.
+              printf "%s${mag}Going to start Part 3 of the installtion${end}\n"
+              curl -L "" > Update.sh
+              if [[ -d "install_files" && ! -L "install_files" ]]; then
+                # CD to directory
+                if [ -e "Update.sh" ]; then
+                  # Going to remove file and download latest one.
+                  rm -rf Update.sh
+                  curl -L "" > Update.sh
+                else
+                  if [ -e "update.sh" ]; then
+                    rm -rf update.sh
+                  fi
+                  curl -L "" > Update.sh
+                fi
+                if [ -e "Download.sh" ]; then
+                  # Going to remove file and download latest one.
+                  rm -rf Download.sh
+                  curl -L "" > Download.sh
+                else
+                  if [ -e "download.sh" ]; then
+                    # Going to delete the file if it exists.
+                    rm -rf download.sh
+                  fi
+                  curl -L "" > Download.sh
+                fi
+                if [ -e "Setup.sh" ]; then
+                  rm -rf Setup.sh
+                  curl -L "" > Setup.sh
+                else
+                  if [ -e "setup.sh" ]; then
+                    rm -rf setup.sh
+                  fi
+                  curl -L "" > Setup.sh
+                fi
+                if [ -e "Start.sh" ]; then
+                  rm -rf Start.sh
+                  curl -L "" > Start.sh
+                else
+                  if [ -e "start.sh" ]; then
+                    rm -rf start.sh
+                  fi
+                fi
+                rm -rf Update.sh
+                rm -rf Download.sh
+                rm -rf setup.sh
+                rm -rf Start.sh
 
+              else
+                mkdir install_files
+                cd install_files
+                curl "" > Update.sh
+                curl "" > Download.sh
+                curl "" > Setup.sh
+                curl "" > Start.sh
+
+              fi
+              printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 3
               if [ -e "PART 4" ]; then
@@ -95,13 +173,39 @@ if [ "$(uname)" == "Darwin" ]; then
                 curl -L "" > PART 4
               fi
               # Run part 4 of the installer.
-
+              # Announce we are starting part 4.
+              printf "%s${mag}Going to start Part 4 of the installtion${end}\n"
+              pip install fuzzywuzzy
+              pip install jsondb
+              pip install jsondatabase
+              pip install nltk
+              pip install pymongo
+              pip install python-twitter
+              pip install textblob
+              pip install python-Levenshtein
+              printf "%s$(tput setaf 10)${yel}Finished installing Part 4 of the installtion${end}\n"
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 4
+              rm -rf INSTALL
+              # Tell the user that we are done with the installer.
+              printf "%s$(tput setaf 10)${grn}Finished installing!${end}\n"
+              sleep 3
+              printf "%s$(tput setaf 10)${mag}Going to run the AI now.${end}\n"
+              sleep 2
+              python application.py
             else
               if [ -e "PART 2" ]; then
+                # Announce we have found part 2.
+                printf "%s$(tput setaf 10) ${grn}We have found Part 2 of the installer!${end}\n"
+                # Announce we are starting part 2.
+                printf "%s${mag}Going to start Part 2 of the installtion${end}\n"
+                cd
+                cd Samantha
+                git clone https://github.com/RiskyAINetwork/Samantha.git
+                mv ./Samantha/* ./
+                git clone https://github.com/RiskyAINetwork/Ai-DB.git
+                printf "%s$(tput setaf 10)${yel}Finished installing Part 2 of the installtion${end}\n"
                 # The installer has gotten this far before. Just pickup from here.
-                # Run part 2 of the installer.
 
                 # Remove this file so it knows that you have gotten this far.
                 rm -rf PART 2
@@ -112,6 +216,64 @@ if [ "$(uname)" == "Darwin" ]; then
                   curl -L "" > PART 3
                 fi
                 # Run part 3 of the installer.
+                # Announce we are starting part 3.
+                printf "%s${mag}Going to start Part 3 of the installtion${end}\n"
+                curl -L "" > Update.sh
+                if [[ -d "install_files" && ! -L "install_files" ]]; then
+                  # CD to directory
+                  if [ -e "Update.sh" ]; then
+                    # Going to remove file and download latest one.
+                    rm -rf Update.sh
+                    curl -L "" > Update.sh
+                  else
+                    if [ -e "update.sh" ]; then
+                      rm -rf update.sh
+                    fi
+                    curl -L "" > Update.sh
+                  fi
+                  if [ -e "Download.sh" ]; then
+                    # Going to remove file and download latest one.
+                    rm -rf Download.sh
+                    curl -L "" > Download.sh
+                  else
+                    if [ -e "download.sh" ]; then
+                      # Going to delete the file if it exists.
+                      rm -rf download.sh
+                    fi
+                    curl -L "" > Download.sh
+                  fi
+                  if [ -e "Setup.sh" ]; then
+                    rm -rf Setup.sh
+                    curl -L "" > Setup.sh
+                  else
+                    if [ -e "setup.sh" ]; then
+                      rm -rf setup.sh
+                    fi
+                    curl -L "" > Setup.sh
+                  fi
+                  if [ -e "Start.sh" ]; then
+                    rm -rf Start.sh
+                    curl -L "" > Start.sh
+                  else
+                    if [ -e "start.sh" ]; then
+                      rm -rf start.sh
+                    fi
+                  fi
+                  rm -rf Update.sh
+                  rm -rf Download.sh
+                  rm -rf setup.sh
+                  rm -rf Start.sh
+
+                else
+                  mkdir install_files
+                  cd install_files
+                  curl "" > Update.sh
+                  curl "" > Download.sh
+                  curl "" > Setup.sh
+                  curl "" > Start.sh
+
+                fi
+                printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                 # Remove this file so it knows that you have gotten this far.
                 rm -rf PART 3
                 if [ -e "Part 4" ]; then
@@ -121,11 +283,87 @@ if [ "$(uname)" == "Darwin" ]; then
                   curl -L "" > PART 4
                 fi
                 # Run part 4 of the installer.
-
+                # Announce we are starting part 4.
+                printf "%s${mag}Going to start Part 4 of the installtion${end}\n"
+                pip install fuzzywuzzy
+                pip install jsondb
+                pip install jsondatabase
+                pip install nltk
+                pip install pymongo
+                pip install python-twitter
+                pip install textblob
+                pip install python-Levenshtein
+                printf "%s$(tput setaf 10)${yel}Finished installing Part 4 of the installtion${end}\n"
                 # Remove this file so it knows that you have gotten this far.
                 rm -rf PART 4
+                rm -rf INSTALL
+                printf "%s$(tput setaf 10)${grn}Finished installing!${end}\n"
+                sleep 3
+                printf "%s$(tput setaf 10)${mag}Going to run the AI now.${end}\n"
+                sleep 2
+                python application.py
               else
                 if [ -e "PART 3" ]; then
+                  # Announce we have found part 3.
+                  printf "%s$(tput setaf 10) ${grn}We have found Part 3 of the installer!${end}\n"
+                  # Announce we are starting part 3.
+                  printf "%s${mag}Going to start Part 3 of the installtion${end}\n"
+                  curl -L "" > Update.sh
+                  if [[ -d "install_files" && ! -L "install_files" ]]; then
+                    # CD to directory
+                    if [ -e "Update.sh" ]; then
+                      # Going to remove file and download latest one.
+                      rm -rf Update.sh
+                      curl -L "" > Update.sh
+                    else
+                      if [ -e "update.sh" ]; then
+                        rm -rf update.sh
+                      fi
+                      curl -L "" > Update.sh
+                    fi
+                    if [ -e "Download.sh" ]; then
+                      # Going to remove file and download latest one.
+                      rm -rf Download.sh
+                      curl -L "" > Download.sh
+                    else
+                      if [ -e "download.sh" ]; then
+                        # Going to delete the file if it exists.
+                        rm -rf download.sh
+                      fi
+                      curl -L "" > Download.sh
+                    fi
+                    if [ -e "Setup.sh" ]; then
+                      rm -rf Setup.sh
+                      curl -L "" > Setup.sh
+                    else
+                      if [ -e "setup.sh" ]; then
+                        rm -rf setup.sh
+                      fi
+                      curl -L "" > Setup.sh
+                    fi
+                    if [ -e "Start.sh" ]; then
+                      rm -rf Start.sh
+                      curl -L "" > Start.sh
+                    else
+                      if [ -e "start.sh" ]; then
+                        rm -rf start.sh
+                      fi
+                    fi
+                    rm -rf Update.sh
+                    rm -rf Download.sh
+                    rm -rf setup.sh
+                    rm -rf Start.sh
+
+                  else
+                    mkdir install_files
+                    cd install_files
+                    curl "" > Update.sh
+                    curl "" > Download.sh
+                    curl "" > Setup.sh
+                    curl "" > Start.sh
+
+                  fi
+                  printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                   # The installer has gotten this far before. Just pick up from here.
                   # Run part 3 of the installer.
 
@@ -138,17 +376,43 @@ if [ "$(uname)" == "Darwin" ]; then
                     curl -L "" > PART 4
                   fi
                   # Run part 4 of the installer.
-
+                  # Tell the user that we are going to be installing part 4.
+                  printf "%s${mag}Going to start Part 4 of the installtion${end}\n"
+                  pip install fuzzywuzzy
+                  pip install jsondb
+                  pip install jsondatabase
+                  pip install nltk
+                  pip install pymongo
+                  pip install python-twitter
+                  pip install textblob
+                  pip install python-Levenshtein
+                  printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                   # Remove this file so it knows that you have gotten this far.
                   rm -rf PART 4
-
+                  rm -rf INSTALL
                 else
                   if [ -e "PART 4" ]; then
+                    # Announce we have found part 4.
+                    printf "%s$(tput setaf 10) ${grn}We have found Part 4 of the installer!${end}\n"
+                    # Announce we are starting part 4.
+                    printf "%s${mag}Going to start Part 4 of the installtion${end}\n"
+                    pip install fuzzywuzzy
+                    pip install jsondb
+                    pip install jsondatabase
+                    pip install nltk
+                    pip install pymongo
+                    pip install python-twitter
+                    pip install textblob
+                    pip install python-Levenshtein
+                    printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                     # The installer has gotten this far before. Just pick up from here.
-                    # Run part 4 of the installer.
-
                     # Remove this file so it knows that you have gotten this far.
                     rm -rf PART 4
+                    printf "%s$(tput setaf 10)${grn}Finished installing!${end}\n"
+                    sleep 3
+                    printf "%s$(tput setaf 10)${mag}Going to run the AI now.${end}\n"
+                    sleep 2
+                    python application.py
                   else
                     # Start the installtion process from scratch.
                     curl -L "" > PART 1
@@ -156,18 +420,109 @@ if [ "$(uname)" == "Darwin" ]; then
                     curl -L "" > PART 3
                     curl -L "" > PART 4
                     # Run part 1 of the installer.
-
+                    # Announce we are starting part 1.
+                    printf "%s${mag}Going to start Part 1 of the installtion${end}\n"
+                    # Install python no matter what.
+                    brew install python
+                    # Install git no matter what.
+                    brew install git
+                    # Install espeak even if they already have it.
+                    brew install espeak
+                    printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                     # Remove this file so it knows that you have gotten this far.
                     rm -rf PART 1
                     # Run part 2 of the installer.
+                    # Announce we are starting part 2.
+                    printf "%s${mag}Going to start Part 2 of the installtion${end}\n"
+                    cd
+                    cd Samantha
+                    git clone https://github.com/RiskyAINetwork/Samantha.git
+                    mv ./Samantha/* ./
+                    git clone https://github.com/RiskyAINetwork/Ai-DB.git
+                    printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                     # Remove this file so it knows that you have gotten this far.
                     rm -rf PART 2
                     # Run part 3 of the installer.
+                    # Announce we are starting part 3.
+                    printf "%s${mag}Going to start Part 3 of the installtion${end}\n"
+                    curl -L "" > Update.sh
+                    if [[ -d "install_files" && ! -L "install_files" ]]; then
+                      # CD to directory
+                      if [ -e "Update.sh" ]; then
+                        # Going to remove file and download latest one.
+                        rm -rf Update.sh
+                        curl -L "" > Update.sh
+                      else
+                        if [ -e "update.sh" ]; then
+                          rm -rf update.sh
+                        fi
+                        curl -L "" > Update.sh
+                      fi
+                      if [ -e "Download.sh" ]; then
+                        # Going to remove file and download latest one.
+                        rm -rf Download.sh
+                        curl -L "" > Download.sh
+                      else
+                        if [ -e "download.sh" ]; then
+                          # Going to delete the file if it exists.
+                          rm -rf download.sh
+                        fi
+                        curl -L "" > Download.sh
+                      fi
+                      if [ -e "Setup.sh" ]; then
+                        rm -rf Setup.sh
+                        curl -L "" > Setup.sh
+                      else
+                        if [ -e "setup.sh" ]; then
+                          rm -rf setup.sh
+                        fi
+                        curl -L "" > Setup.sh
+                      fi
+                      if [ -e "Start.sh" ]; then
+                        rm -rf Start.sh
+                        curl -L "" > Start.sh
+                      else
+                        if [ -e "start.sh" ]; then
+                          rm -rf start.sh
+                        fi
+                      fi
+                      rm -rf Update.sh
+                      rm -rf Download.sh
+                      rm -rf setup.sh
+                      rm -rf Start.sh
+
+                    else
+                      mkdir install_files
+                      cd install_files
+                      curl "" > Update.sh
+                      curl "" > Download.sh
+                      curl "" > Setup.sh
+                      curl "" > Start.sh
+
+                    fi
+                    printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                     # Remove this file so it knows that you have gotten this far.
                     rm -rf PART 3
                     # Run part 4 of the installer.
+                    # Announce we are starting part 4.
+                    printf "%s${mag}Going to start Part 4 of the installtion${end}\n"
+                    pip install fuzzywuzzy
+                    pip install jsondb
+                    pip install jsondatabase
+                    pip install nltk
+                    pip install pymongo
+                    pip install python-twitter
+                    pip install textblob
+                    pip install python-Levenshtein
+                    printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                     # Remove this file so it knows that you have gotten this far.
                     rm -rf PART 4
+                    rm -rf INSTALL
+                    # Announce we are finished.
+                    printf "%s$(tput setaf 10)${grn}Finished installing!${end}\n"
+                    sleep 3
+                    printf "%s$(tput setaf 10)${mag}Going to start the AI now${end}\n"
+                    sleep 2
                   fi
                 fi
               fi
@@ -181,10 +536,125 @@ if [ "$(uname)" == "Darwin" ]; then
 
         else
             # Clearly the user already has the AI installed.
+            printf "%s$(tput setaf 10)${grn}System already installed.${end}\n"
+            sleep 3
+            printf "%s$(tput setaf 10)${mag}Going to run the AI now.${end}\n"
+            sleep 2
+            python application.py
         fi
     else
         # Make a directory to contain the AI seen as it does not exist.
         mkdir Samantha
+        # Continue with the install.
+        # Going to tell the user that the install might take a while.
+        printf ""
+        # Download part 1.
+        curl -L "" > PART 1
+        # Install part 1
+        printf "%s${mag}Going to start Part 1 of the installtion${end}\n"
+        # Install python no matter what.
+        brew install python
+        # Install git no matter what.
+        brew install git
+        # Install espeak even if they already have it.
+        brew install espeak
+        printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
+        # Remove part 1
+        rm -rf PART 1
+        # Download part 2.
+        curl -L "" > PART 2
+        # Install part 2.
+        printf "%s${mag}Going to start Part 2 of the installtion${end}\n"
+        cd
+        cd Samantha
+        git clone https://github.com/RiskyAINetwork/Samantha.git
+        mv ./Samantha/* ./
+        git clone https://github.com/RiskyAINetwork/Ai-DB.git
+        printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
+        # Remove part 2
+        rm -rf PART 2
+        # Download part 3.
+        curl -L "" > PART 3
+        # Install part 3.
+        printf "%s${mag}Going to start Part 3 of the installtion${end}\n"
+        curl -L "" > Update.sh
+        if [[ -d "install_files" && ! -L "install_files" ]]; then
+          # CD to directory
+          if [ -e "Update.sh" ]; then
+            # Going to remove file and download latest one.
+            rm -rf Update.sh
+            curl -L "" > Update.sh
+          else
+            if [ -e "update.sh" ]; then
+              rm -rf update.sh
+            fi
+            curl -L "" > Update.sh
+          fi
+          if [ -e "Download.sh" ]; then
+            # Going to remove file and download latest one.
+            rm -rf Download.sh
+            curl -L "" > Download.sh
+          else
+            if [ -e "download.sh" ]; then
+              # Going to delete the file if it exists.
+              rm -rf download.sh
+            fi
+            curl -L "" > Download.sh
+          fi
+          if [ -e "Setup.sh" ]; then
+            rm -rf Setup.sh
+            curl -L "" > Setup.sh
+          else
+            if [ -e "setup.sh" ]; then
+              rm -rf setup.sh
+            fi
+            curl -L "" > Setup.sh
+          fi
+          if [ -e "Start.sh" ]; then
+            rm -rf Start.sh
+            curl -L "" > Start.sh
+          else
+            if [ -e "start.sh" ]; then
+              rm -rf start.sh
+            fi
+          fi
+          rm -rf Update.sh
+          rm -rf Download.sh
+          rm -rf setup.sh
+          rm -rf Start.sh
+
+        else
+          mkdir install_files
+          cd install_files
+          curl "" > Update.sh
+          curl "" > Download.sh
+          curl "" > Setup.sh
+          curl "" > Start.sh
+
+        fi
+        printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
+        # Remove part 3.
+        rm -rf PART 3
+        # Download part 4.
+        curl -L "" > PART 4
+        # Install part 4.
+        printf "%s${mag}Going to start Part 4 of the installtion${end}\n"
+        pip install fuzzywuzzy
+        pip install jsondb
+        pip install jsondatabase
+        pip install nltk
+        pip install pymongo
+        pip install python-twitter
+        pip install textblob
+        pip install python-Levenshtein
+        printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
+        # Remove part 4.
+        rm -rf PART 4
+        printf "%s$(tput setaf 10)${grn}Finished installing!${end}\n"
+        sleep 3
+        printf "%s$(tput setaf 10)${mag}Going to run the AI now.${end}\n"
+        sleep 2
+        python application.py
     fi
 
 
