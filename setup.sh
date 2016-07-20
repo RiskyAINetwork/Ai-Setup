@@ -63,16 +63,59 @@ if [ "$(uname)" == "Darwin" ]; then
             # Going to check if any of the install proccess files exist.
             if [ -e "PART 1" ]; then
               # Seen as this file exists then we will run the installer from here.
+
+              # Remove this file so it knows that you have gotten this far.
+              rm -rf PART 1
+              if [ -e "PART 2" ]; then
+                rm -rf PART 2
+                curl -L "" > PART 2
+              else
+                curl -L "" > PART 2
+              fi
+              if [ -e "PART 3" ]; then
+                rm -rf PART 3
+                curl -L "" > PART 3
+              else
+                curl -L "" > PART 3
+              fi
+              if [ -e "PART 4" ]; then
+                rm -rf PART 4
+                curl -L "" > PART 4
+              else
+                curl -L "" > PART 4
             else
               if [ -e "PART 2" ]; then
                 # The installer has gotten this far before. Just pickup from here.
+
+                # Remove this file so it knows that you have gotten this far.
+                rm -rf PART 2
+                if [ -e "PART 3" ]; then
+                  rm -rf PART 3
+                  curl -L "" > PART 3
+                else
+                  curl -L "" > PART 3
+                fi
+                if [ -e "Part 4" ]; then
+                  rm -rf PART 4
+                  curl -L "" > PART 4
+                else
+                  curl -L "" > PART 4
+                fi
               else
                 if [ -e "PART 3" ]; then
                   # The installer has gotten this far before. Just pick up from here.
+
+                  # Remove this file so it knows that you have gotten this far.
+                  rm -rf PART 3
+                  curl -L "" > PART 4
                 else
                   if [ -e "PART 4" ]; then
                     # The installer has gotten this far before. Just pick up from here.
+
+                    # Remove this file so it knows that you have gotten this far.
+                    rm -rf PART 4
                   else
+                    # Start the installtion process from scratch.
                     curl -L "" > PART 1
                     curl -L "" > PART 2
                     curl -L "" > PART 3
