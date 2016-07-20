@@ -63,6 +63,8 @@ if [ "$(uname)" == "Darwin" ]; then
             # Going to check if any of the install proccess files exist.
             if [ -e "PART 1" ]; then
               # Seen as this file exists then we will run the installer from here.
+              # Run part 1 of the installer.
+              # Perform a check for python and brew and any other required files.
 
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 1
@@ -72,6 +74,8 @@ if [ "$(uname)" == "Darwin" ]; then
               else
                 curl -L "" > PART 2
               fi
+              # Run part 2 of the installer.
+
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 2
               if [ -e "PART 3" ]; then
@@ -80,6 +84,8 @@ if [ "$(uname)" == "Darwin" ]; then
               else
                 curl -L "" > PART 3
               fi
+              # Run part 3 of the installer.
+
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 3
               if [ -e "PART 4" ]; then
@@ -88,11 +94,14 @@ if [ "$(uname)" == "Darwin" ]; then
               else
                 curl -L "" > PART 4
               fi
+              # Run part 4 of the installer.
+
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 4
             else
               if [ -e "PART 2" ]; then
                 # The installer has gotten this far before. Just pickup from here.
+                # Run part 2 of the installer.
 
                 # Remove this file so it knows that you have gotten this far.
                 rm -rf PART 2
@@ -102,6 +111,7 @@ if [ "$(uname)" == "Darwin" ]; then
                 else
                   curl -L "" > PART 3
                 fi
+                # Run part 3 of the installer.
                 # Remove this file so it knows that you have gotten this far.
                 rm -rf PART 3
                 if [ -e "Part 4" ]; then
@@ -110,11 +120,14 @@ if [ "$(uname)" == "Darwin" ]; then
                 else
                   curl -L "" > PART 4
                 fi
+                # Run part 4 of the installer.
+
                 # Remove this file so it knows that you have gotten this far.
-                rm -rf PART 3
+                rm -rf PART 4
               else
                 if [ -e "PART 3" ]; then
                   # The installer has gotten this far before. Just pick up from here.
+                  # Run part 3 of the installer.
 
                   # Remove this file so it knows that you have gotten this far.
                   rm -rf PART 3
@@ -124,12 +137,15 @@ if [ "$(uname)" == "Darwin" ]; then
                   else
                     curl -L "" > PART 4
                   fi
+                  # Run part 4 of the installer.
+
                   # Remove this file so it knows that you have gotten this far.
                   rm -rf PART 4
 
                 else
                   if [ -e "PART 4" ]; then
                     # The installer has gotten this far before. Just pick up from here.
+                    # Run part 4 of the installer.
 
                     # Remove this file so it knows that you have gotten this far.
                     rm -rf PART 4
@@ -139,6 +155,19 @@ if [ "$(uname)" == "Darwin" ]; then
                     curl -L "" > PART 2
                     curl -L "" > PART 3
                     curl -L "" > PART 4
+                    # Run part 1 of the installer.
+
+                    # Remove this file so it knows that you have gotten this far.
+                    rm -rf PART 1
+                    # Run part 2 of the installer.
+                    # Remove this file so it knows that you have gotten this far.
+                    rm -rf PART 2
+                    # Run part 3 of the installer.
+                    # Remove this file so it knows that you have gotten this far.
+                    rm -rf PART 3
+                    # Run part 4 of the installer.
+                    # Remove this file so it knows that you have gotten this far.
+                    rm -rf PART 4
                   fi
                 fi
               fi
