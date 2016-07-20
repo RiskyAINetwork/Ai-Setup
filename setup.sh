@@ -72,17 +72,24 @@ if [ "$(uname)" == "Darwin" ]; then
               else
                 curl -L "" > PART 2
               fi
+              # Remove this file so it knows that you have gotten this far.
+              rm -rf PART 2
               if [ -e "PART 3" ]; then
                 rm -rf PART 3
                 curl -L "" > PART 3
               else
                 curl -L "" > PART 3
               fi
+              # Remove this file so it knows that you have gotten this far.
+              rm -rf PART 3
               if [ -e "PART 4" ]; then
                 rm -rf PART 4
                 curl -L "" > PART 4
               else
                 curl -L "" > PART 4
+              fi
+              # Remove this file so it knows that you have gotten this far.
+              rm -rf PART 4
             else
               if [ -e "PART 2" ]; then
                 # The installer has gotten this far before. Just pickup from here.
@@ -95,19 +102,31 @@ if [ "$(uname)" == "Darwin" ]; then
                 else
                   curl -L "" > PART 3
                 fi
+                # Remove this file so it knows that you have gotten this far.
+                rm -rf PART 3
                 if [ -e "Part 4" ]; then
                   rm -rf PART 4
                   curl -L "" > PART 4
                 else
                   curl -L "" > PART 4
                 fi
+                # Remove this file so it knows that you have gotten this far.
+                rm -rf PART 3
               else
                 if [ -e "PART 3" ]; then
                   # The installer has gotten this far before. Just pick up from here.
 
                   # Remove this file so it knows that you have gotten this far.
                   rm -rf PART 3
-                  curl -L "" > PART 4
+                  if [-e "PART 4" ]; then
+                    rm -rf PART 4
+                    curl -L "" > PART 4
+                  else
+                    curl -L "" > PART 4
+                  fi
+                  # Remove this file so it knows that you have gotten this far.
+                  rm -rf PART 4
+
                 else
                   if [ -e "PART 4" ]; then
                     # The installer has gotten this far before. Just pick up from here.
