@@ -1,10 +1,9 @@
 #!/bin/bash
-
 ##################################################################
 ## IF YOU ARE GOING TO EDIT THIS FILE... NO WHITE SPACE PLEASE! ##
 ##                AND COMMENT EVERYTHING YOU DO!                ##
+## ALSO... DONT BE A DICK. USE YOUR TABS.                       ##
 ##################################################################
-
 # Terminal Colors
 red=$'\e[1;31m'
 grn=$'\e[1;32m'
@@ -13,10 +12,9 @@ blu=$'\e[1;34m'
 mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
-
 # Clean console incase it is dirty with other commands.
 clear
-
+# If user is on mac.
 if [ "$(uname)" == "Darwin" ]; then
     # Detect if they are in root mode.
     if [ "$(whoami)" = "root" ]; then
@@ -27,7 +25,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # Confirm with the user what OS they are on... incase they forgot.
     printf "%s\n${blu}User is on MAC...${end}\n"
     # CD to root directory where the AI will be installed.
-    cd
+    cd ...
     # Print our logo.
     cat << "EOF"
     R.A.I.N
@@ -78,8 +76,6 @@ if [ "$(uname)" == "Darwin" ]; then
               printf "%s$(tput setaf 10)${yel}Finished installing Part 1 of the installtion${end}\n"
               # Seen as this file exists then we will run the installer from here.
               # Run part 1 of the installer.
-              # Perform a check for python and brew and any other required files.
-
               # Remove this file so it knows that you have gotten this far.
               rm -rf PART 1
               if [ -e "PART 2" ]; then
@@ -149,19 +145,16 @@ if [ "$(uname)" == "Darwin" ]; then
                     rm -rf start.sh
                   fi
                 fi
-                rm -rf Update.sh
                 rm -rf Download.sh
                 rm -rf setup.sh
                 rm -rf Start.sh
-
               else
                 mkdir install_files
                 cd install_files
-                curl "" > Update.sh
-                curl "" > Download.sh
-                curl "" > Setup.sh
-                curl "" > Start.sh
-
+                curl -L "" > Update.sh
+                curl -L "" > Download.sh
+                curl -L "" > Setup.sh
+                curl -L "" > Start.sh
               fi
               printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
               # Remove this file so it knows that you have gotten this far.
@@ -263,15 +256,13 @@ if [ "$(uname)" == "Darwin" ]; then
                   rm -rf Download.sh
                   rm -rf setup.sh
                   rm -rf Start.sh
-
                 else
                   mkdir install_files
                   cd install_files
-                  curl "" > Update.sh
-                  curl "" > Download.sh
-                  curl "" > Setup.sh
-                  curl "" > Start.sh
-
+                  curl -L "" > Update.sh
+                  curl -L "" > Download.sh
+                  curl -L "" > Setup.sh
+                  curl -L "" > Start.sh
                 fi
                 printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                 # Remove this file so it knows that you have gotten this far.
@@ -353,23 +344,19 @@ if [ "$(uname)" == "Darwin" ]; then
                     rm -rf Download.sh
                     rm -rf setup.sh
                     rm -rf Start.sh
-
                   else
                     mkdir install_files
                     cd install_files
-                    curl "" > Update.sh
-                    curl "" > Download.sh
-                    curl "" > Setup.sh
-                    curl "" > Start.sh
-
+                    curl -L "" > Update.sh
+                    curl -L "" > Download.sh
+                    curl -L "" > Setup.sh
+                    curl -L "" > Start.sh
                   fi
                   printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                   # The installer has gotten this far before. Just pick up from here.
-                  # Run part 3 of the installer.
-
                   # Remove this file so it knows that you have gotten this far.
                   rm -rf PART 3
-                  if [-e "PART 4" ]; then
+                  if [ -e "PART 4" ]; then
                     rm -rf PART 4
                     curl -L "" > PART 4
                   else
@@ -490,15 +477,13 @@ if [ "$(uname)" == "Darwin" ]; then
                       rm -rf Download.sh
                       rm -rf setup.sh
                       rm -rf Start.sh
-
                     else
                       mkdir install_files
                       cd install_files
-                      curl "" > Update.sh
-                      curl "" > Download.sh
-                      curl "" > Setup.sh
-                      curl "" > Start.sh
-
+                      curl -L "" > Update.sh
+                      curl -L "" > Download.sh
+                      curl -L "" > Setup.sh
+                      curl -L "" > Start.sh
                     fi
                     printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
                     # Remove this file so it knows that you have gotten this far.
@@ -527,13 +512,6 @@ if [ "$(uname)" == "Darwin" ]; then
                 fi
               fi
             fi
-
-
-
-
-
-
-
         else
             # Clearly the user already has the AI installed.
             printf "%s$(tput setaf 10)${grn}System already installed.${end}\n"
@@ -622,15 +600,13 @@ if [ "$(uname)" == "Darwin" ]; then
           rm -rf Download.sh
           rm -rf setup.sh
           rm -rf Start.sh
-
         else
           mkdir install_files
           cd install_files
-          curl "" > Update.sh
-          curl "" > Download.sh
-          curl "" > Setup.sh
-          curl "" > Start.sh
-
+          curl -L "" > Update.sh
+          curl -L "" > Download.sh
+          curl -L "" > Setup.sh
+          curl -L "" > Start.sh
         fi
         printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
         # Remove part 3.
@@ -656,31 +632,8 @@ if [ "$(uname)" == "Darwin" ]; then
         sleep 2
         python application.py
     fi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+fi
+    #LINUX
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
       # Detect if they are in root mode.
       if [ "$(whoami)" != "root" ]; then
@@ -724,9 +677,223 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
               exit 1
           fi
           # Going forth with the install if they responded with yes.
+          if [ -e "PART 1" ]; then
+            printf "%s${mag}Going to begin installing Part 1 of the installtion${end}\n"
+            # Install python no matter what.
+            sudo apt-get install -y python
+            # Install git no matter what.
+            sudo apt-get install -y git
+            # Install espeak even if they already have it.
+            sudo apt-get install -y espeak
+            sudo apt-get install -y espeak espeak-python
+            printf "%s$(tput setaf 10)${yel}Finished installing Part 1 of the installtion${end}\n"
+            rm -rf PART 1
+            if [ -e "PART 2" ]; then
+              rm -rf PART 2
+              curl -L "" > PART 2
+            else
+              curl -L "" > PART 2
+            fi
+            printf "%s${mag}Going to begin installing Part 2 of the installtion${end}\n"
+            cd
+            cd Samantha
+            git clone https://github.com/RiskyAINetwork/Samantha.git
+            mv ./Samantha/* ./
+            git clone https://github.com/RiskyAINetwork/Ai-DB.git
+            printf "%s$(tput setaf 10)${yel}Finished installing Part 2 of the installtion${end}\n"
+            rm -rf PART 2
+            if [ -e "PART 3" ]; then
+              rm -rf PART 3
+              curl -L "" > PART 3
+            else
+              curl -L "" > PART 3
+            fi
+            printf "%s${mag}Going to begin installing Part 3 of the installtion${end}\n"
+            curl -L "" > Update.sh
+            if [[ -d "install_files" && ! -L "install_files" ]]; then
+              # CD to directory
+              if [ -e "Update.sh" ]; then
+                # Going to remove file and download latest one.
+                rm -rf Update.sh
+                curl -L "" > Update.sh
+              else
+                if [ -e "update.sh" ]; then
+                  rm -rf update.sh
+                fi
+                curl -L "" > Update.sh
+              fi
+              if [ -e "Download.sh" ]; then
+                # Going to remove file and download latest one.
+                rm -rf Download.sh
+                curl -L "" > Download.sh
+              else
+                if [ -e "download.sh" ]; then
+                  # Going to delete the file if it exists.
+                  rm -rf download.sh
+                fi
+                curl -L "" > Download.sh
+              fi
+              if [ -e "Setup.sh" ]; then
+                rm -rf Setup.sh
+                curl -L "" > Setup.sh
+              else
+                if [ -e "setup.sh" ]; then
+                  rm -rf setup.sh
+                fi
+                curl -L "" > Setup.sh
+              fi
+              if [ -e "Start.sh" ]; then
+                rm -rf Start.sh
+                curl -L "" > Start.sh
+              else
+                if [ -e "start.sh" ]; then
+                  rm -rf start.sh
+                fi
+              fi
+              rm -rf Download.sh
+              rm -rf setup.sh
+              rm -rf Start.sh
+            printf "%s$(tput setaf 10)${yel}Finished installing Part 3 of the installtion${end}\n"
+            rm -rf PART 3
+            if [ -e "PART 4" ]; then
+              rm -rf PART 4
+              curl -L "" > PART 4
+            else
+              curl -L "" > PART 4
+            fi
+            printf "%s${mag}Going to begin installing Part 4 of the installtion${end}\n"
+            pip install fuzzywuzzy
+            pip install jsondb
+            pip install jsondatabase
+            pip install nltk
+            pip install pymongo
+            pip install python-twitter
+            pip install textblob
+            pip install python-Levenshtein
+            printf "%s$(tput setaf 10)${yel}Finished installing Part 4 of the installtion${end}\n"
+            rm -rf PART 4
+            rm -rf INSTALL
+          else
+            if [ -e "PART 2" ]; then
 
+              if [ -e "PART 3" ]; then
+                rm -rf PART 3
+                curl -L "" > PART 3
+              else
+                curl -L "" > PART 3
+              fi
+              if [ -e "PART 4" ]; then
+                rm -rf PART 4
+                curl -L "" > PART 4
+              else
+                curl -L "" > PART 4
+              fi
+            else
+              if [ -e "PART 3" ]; then
+
+                if [ -e "PART 4" ]; then
+                  rm -rf PART 4
+                  curl -L "" > PART 4
+                else
+                  curl -L "" > PART 4
+                fi
+              else
+                if [ -e "PART 4" ]; then
+                  rm -rf PART 4
+                  curl -l "" > PART 4
+                else
+                  curl -L "" > PART 1
+                  curl -L "" > PART 2
+                  curl -L "" > PART 3
+                  curl -L "" > PART 4
+
+                  rm -rf INSTALL
+                  rm -rf PART 1
+                  rm -rf PART 2
+                  rm -rf PART 3
+                  rm -rf PART 4
+                fi
+              fi
+            fi
+          fi
         else
           # Clearly the user already has the AI installed.
+          if [ -e "PART 1" ]; then
+            # INSTALL PART 1
+            rm -rf PART 1
+          else
+            if [ -e "PART 2" ]; then
+              rm -rf PART 2
+              curl -L "" > PART 2
+            else
+              curl -L ""> PART 2
+            fi
+            if [ -e "PART 3" ]; then
+              rm -rf PART 3
+              curl -L "" > PART 3
+            else
+              curl -L "" > PART 3
+            fi
+            if [ -e "PART 4" ]; then
+              rm -rf PART 4
+              curl -L "" > PART 4
+            else
+              curl -L "" > PART 4
+            fi
+          fi
+          if [ -e "PART 2" ]; then
+              # INSTALL PART 2
+            rm -rf PART 2
+          else
+            if [ -e "PART 3" ]; then
+              rm -rf PART 3
+              curl -L "" > PART 3
+            else
+              curl -L "" > PART 3
+            fi
+            if [ -e "PART 4" ]; then
+              rm -rf PART 4
+              curl -L "" > PART 4
+            else
+              curl -L "" > PART 4
+            fi
+          fi
+          if [ -e "PART 3" ]; then
+            rm -rf PART 3
+          else
+            if [ -e "PART 4" ]; then
+              pip install fuzzywuzzy
+              pip install jsondb
+              pip install jsondatabase
+              pip install nltk
+              pip install pymongo
+              pip install python-twitter
+              pip install textblob
+              pip install python-Levenshtein
+              rm -rf PART 4
+            else
+              #RUN
+              rm -rf PART 4
+              # HERE FOR FILLER
+            fi
+          fi
+          if [ -e "PART 4" ]; then
+            pip install fuzzywuzzy
+            pip install jsondb
+            pip install jsondatabase
+            pip install nltk
+            pip install pymongo
+            pip install python-twitter
+            pip install textblob
+            pip install python-Levenshtein
+            rm -rf PART 4
+          else
+              printf "%s$(tput setaf 10)${grn}System already installed.${end}\n"
+              sleep 3
+              printf "%s$(tput setaf 10)${mag}Going to run the AI now.${end}\n"
+              sleep 2
+              python application.py
+          fi
         fi
       else
         # Make a directory to contain the AI seen as it does not exist.
