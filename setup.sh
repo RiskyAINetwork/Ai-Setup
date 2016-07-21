@@ -181,8 +181,8 @@ if [ "$(uname)" == "Darwin" ]; then
   if [[ -d "Samantha" && ! -L "Samantha" ]]; then
     cd Samantha
     if [ -e "INSTALL" ]; then
-      request_permission
       if [ -e "PART 1" ]; then
+        request_permission
         install_part_1_mac
         install_part_2
         install_part_3
@@ -190,22 +190,26 @@ if [ "$(uname)" == "Darwin" ]; then
         application_run
       else
         if [ -e "PART 2" ]; then
+          request_permission
           install_part_2
           install_part_3
           install_part_4
           application_run
         else
           if [ -e "PART 3" ]; then
+            request_permission
             install_part_3
             install_part_4
             application_run
           else
             if [ -e "PART 4" ]; then
+              request_permission
               install_part_4
               application_run
             else
               printf "%s\n${red}Could not find any of the install Parts!${end}\n"
               if [ -e "PART 1" ]; then
+                request_permission
                 install_part_1_mac
                 install_part_2
                 install_part_3
@@ -213,17 +217,20 @@ if [ "$(uname)" == "Darwin" ]; then
                 application_run
               else
                 if [ -e "PART 2" ]; then
+                  request_permission
                   install_part_2
                   install_part_3
                   install_part_4
                   application_run
                 else
                   if [ -e "PART 3" ]; then
+                    request_permission
                     install_part_3
                     install_part_4
                     application_run
                   else
                     if [ -e "PART 4" ]; then
+                      request_permission
                       install_part_4
                       application_run
                     else
@@ -238,6 +245,7 @@ if [ "$(uname)" == "Darwin" ]; then
       fi
     else
       if [ -e "PART 1" ]; then
+        request_permission
         install_part_1_mac
         install_part_2
         install_part_3
@@ -245,17 +253,20 @@ if [ "$(uname)" == "Darwin" ]; then
         application_run
       else
         if [ -e "PART 2" ]; then
+          request_permission
           install_part_2
           install_part_3
           install_part_4
           application_run
         else
           if [ -e "PART 3" ]; then
+            request_permission
             install_part_3
             install_part_4
             application_run
           else
             if [ -e "PART 4" ]; then
+              request_permission
               install_part_4
               application_run
             else
@@ -266,6 +277,7 @@ if [ "$(uname)" == "Darwin" ]; then
       fi
     fi
   else
+    request_permission
     mkdir Samantha
     cd Samantha
     curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/INSTALL" > INSTALL
@@ -287,8 +299,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [[ -d "Samantha" && ! -L "Samantha" ]]; then
     cd Samantha
     if [ -e "INSTALL" ]; then
-      request_permission
       if [ -e "PART 1" ]; then
+        request_permission
         install_part_1_linux
         install_part_2
         install_part_3
@@ -296,22 +308,26 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         application_run
       else
         if [ -e "PART 2" ]; then
+          request_permission
           install_part_2
           install_part_3
           install_part_4
           application_run
         else
           if [ -e "PART 3" ]; then
+            request_permission
             install_part_3
             install_part_4
             application_run
           else
             if [ -e "PART 4" ]; then
+              request_permission
               install_part_4
               application_run
             else
               printf "%s\n${red}Could not find any of the install Parts!${end}\n"
               if [ -e "PART 1" ]; then
+                request_permission
                 install_part_1_linux
                 install_part_2
                 install_part_3
@@ -319,17 +335,20 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
                 application_run
               else
                 if [ -e "PART 2" ]; then
+                  request_permission
                   install_part_2
                   install_part_3
                   install_part_4
                   application_run
                 else
                   if [ -e "PART 3" ]; then
+                    request_permission
                     install_part_3
                     install_part_4
                     application_run
                   else
                     if [ -e "PART 4" ]; then
+                      request_permission
                       install_part_4
                       application_run
                     else
@@ -344,6 +363,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
       fi
     else
       if [ -e "PART 1" ]; then
+        request_permission
         install_part_1_linux
         install_part_2
         install_part_3
@@ -351,17 +371,20 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         application_run
       else
         if [ -e "PART 2" ]; then
+          request_permission
           install_part_2
           install_part_3
           install_part_4
           application_run
         else
           if [ -e "PART 3" ]; then
+            request_permission
             install_part_3
             install_part_4
             application_run
           else
             if [ -e "PART 4" ]; then
+              request_permission
               install_part_4
               application_run
             else
@@ -372,6 +395,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
       fi
     fi
   else
+    request_permission
     mkdir Samantha
     cd Samantha
     curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/INSTALL" > INSTALL
