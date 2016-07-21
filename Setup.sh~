@@ -276,7 +276,7 @@ if [ "$(uname)" == "Darwin" ]; then
     install_part_4
     application_run
   fi
-  #LINUX
+#LINUX
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [ "$(whoami)" != "root" ]; then
     printf "%s\n${red}This script cannot run without root permissions, try: ./${0##*/}${end}\n "
