@@ -14,3 +14,12 @@ cyn=$'\e[1;36m'
 end=$'\e[0m'
 # Clean console incase it is dirty with other commands.
 clear
+cd ../
+import urllib
+try :
+    stri = "http://74.125.228.100"
+    data = urllib.urlopen(stri)
+    printf "%s\n${grn}User is connected to internet! Going to start update.${end}\n"
+
+except e:
+    printf "%s\n${red}User is not connected to the internet. Please try again later.${end}\n" ,e 

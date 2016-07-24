@@ -14,3 +14,4 @@ cyn=$'\e[1;36m'
 end=$'\e[0m'
 # Clean console incase it is dirty with other commands.
 clear
+cd ../
