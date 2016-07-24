@@ -64,13 +64,13 @@ install_part_2(){
 }
 install_part_3(){
   printf "%s\n${mag}Going to install PART 3.${end}\n"
-  printf "%s\n${mag}Going to move install files to install_files folder.${end}\n"
+  printf "%s\n${mag}Going to move install files to housekeeping folder.${end}\n"
   curl -L "" > Update.sh
   rm -rf Download.sh
   rm -rf setup.sh
   rm -rf Start.sh
   curl "" > Start.sh
-  if [[ -d "install_files" && ! -L "install_files" ]]; then
+  if [[ -d "housekeeping" && ! -L "housekeeping" ]]; then
     printf "%s\n${mag}Found the folder. Going to download the files.${end}\n"
     cd install_files
     if [ -e "Update.sh" ]; then
@@ -120,8 +120,8 @@ install_part_3(){
     printf "%s$(tput setaf 10)${yel}Finished downloading files into folder.${end}\n"
   else
     printf "%s\n${mag}Could not find directory. Going to make it.${end}\n"
-    mkdir install_files
-    cd install_files
+    mkdir housekeeping
+    cd housekeeping
     curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/Update.sh" > Update.sh
     curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/Download.sh" > Download.sh
     curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/Setup.sh" > Setup.sh
