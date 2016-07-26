@@ -119,24 +119,24 @@ if [[ -d "Samantha" && ! -L "Samantha" ]]; then
     if [ -e "PART 1" ]; then
       install_part_1
       install_part_2
-      application_run
+
     else
       if [ -e "PART 2" ]; then
         install_part_2
-        application_run
+
       else
         printf "%s\n${red}Could not find any of the install Parts!${end}\n"
         if [ -e "PART 1" ]; then
           install_part_1
           install_part_2
-          application_run
+
         else
           if [ -e "PART 2" ]; then
             install_part_2
-            application_run
+
           else
-            application_run
-            application_run
+
+
           fi
         fi
       fi
@@ -145,14 +145,14 @@ if [[ -d "Samantha" && ! -L "Samantha" ]]; then
     if [ -e "PART 1" ]; then
       install_part_1
       install_part_2
-      application_run
+
     else
       if [ -e "PART 2" ]; then
         install_part_2
-        application_run
+
       else
-        application_run
-        application_run
+
+
       fi
     fi
   fi
@@ -163,5 +163,5 @@ else
   curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%201" > PART 1
   install_part_1
   install_part_2
-  application_run
+
 fi
