@@ -135,7 +135,7 @@ if [[ -d "Samantha" && ! -L "Samantha" ]]; then
             install_part_2
 
           else
-
+            application_run
 
           fi
         fi
@@ -151,7 +151,7 @@ if [[ -d "Samantha" && ! -L "Samantha" ]]; then
         install_part_2
 
       else
-
+        application_run
 
       fi
     fi
