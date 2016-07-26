@@ -100,7 +100,15 @@ install_part_2(){
   printf "%s$(tput setaf 10)${cyn}Finished installing PART 2.${end}\n"
   rm -rf PART 2
 }
-
+application_run(){
+  sleep 3
+  printf "%s\n${mag}Going to start the AI.${end}\n"
+  cd
+  cd Samantha
+  sleep 2
+  clear
+  python application.py Finished.
+}
 # Clean console incase it is dirty with other commands.
 cd ~/
 cd
@@ -111,24 +119,24 @@ if [[ -d "Samantha" && ! -L "Samantha" ]]; then
     if [ -e "PART 1" ]; then
       install_part_1
       install_part_2
-      exit 0
+      application_run
     else
       if [ -e "PART 2" ]; then
         install_part_2
-        exit 0
+        application_run
       else
         printf "%s\n${red}Could not find any of the install Parts!${end}\n"
         if [ -e "PART 1" ]; then
           install_part_1
           install_part_2
-          exit 0
+          application_run
         else
           if [ -e "PART 2" ]; then
             install_part_2
-            exit 0
+            application_run
           else
             application_run
-            exit 0
+            application_run
           fi
         fi
       fi
@@ -137,14 +145,14 @@ if [[ -d "Samantha" && ! -L "Samantha" ]]; then
     if [ -e "PART 1" ]; then
       install_part_1
       install_part_2
-      exit 0
+      application_run
     else
       if [ -e "PART 2" ]; then
         install_part_2
-        exit 0
+        application_run
       else
         application_run
-        exit 0
+        application_run
       fi
     fi
   fi
@@ -155,5 +163,5 @@ else
   curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%201" > PART 1
   install_part_1
   install_part_2
-  exit 0
+  application_run
 fi
