@@ -15,21 +15,15 @@ end=$'\e[0m'
 # Clean console incase it is dirty with other commands.
 clear
 cd ~/Samantha
-if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
-    printf "%s\n${grn}User is connected to internet! Going to start update.${end}\n"
-    # Move the current database folder to a different name.
-    mv ./Ai-DB/ ./Ai-DB-OLD/
-    cd ~/
-    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Update.sh" > Update.sh
-    mv ./Samantha ./Samantha-OLD
-    git clone https://github.com/crazywolf132/Samantha.git
-    cd Samantha
-    git clone https://github.com/crazywolf132/Ai-DB.git
-    cd samantha
-    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Download.sh" > download.sh
-    bash download.sh
-
-else
-    printf "%s\n${red}User is not connected to the internet. Please try again later.${end}\n" ,e
-    exit 1
-fi
+printf "%s\n${grn}User is connected to internet! Going to start update.${end}\n"
+# Move the current database folder to a different name.
+mv ./Ai-DB/ ./Ai-DB-OLD/
+cd ~/
+curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Update.sh" > Update.sh
+mv ./Samantha ./Samantha-OLD
+git clone https://github.com/crazywolf132/Samantha.git
+cd Samantha
+git clone https://github.com/crazywolf132/Ai-DB.git
+cd samantha
+curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Download.sh" > download.sh
+bash download.sh
