@@ -15,11 +15,7 @@ end=$'\e[0m'
 # Clean console incase it is dirty with other commands.
 clear
 cd ~/Samantha
-nc -z 8.8.8.8 53  >/dev/null 2>&1
-online=$?
-if [ $online -eq 0 ]; then
-    stri = "http://74.125.228.100"
-    data = urllib.urlopen(stri)
+if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
     printf "%s\n${grn}User is connected to internet! Going to start update.${end}\n"
     # Move the current database folder to a different name.
     mv ./Ai-DB/ ./Ai-DB-OLD/
