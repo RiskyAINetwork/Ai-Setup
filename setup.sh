@@ -295,7 +295,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     exit 0
   fi
   printf "%s\n${blu}User is on LINUX...${end}\n"
-  cd ~/
+  cd
   if [[ -d "Samantha" && ! -L "Samantha" ]]; then
     cd Samantha
     if [ -e "INSTALL" ]; then
