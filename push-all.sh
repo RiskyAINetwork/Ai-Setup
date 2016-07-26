@@ -1,8 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 cd ~/
 cd projects
-if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-  for d in ./*/ ; do (cd "$d" && printf "OLLA"); done
-else
-  printf 'we are all fucked!'
-fi
+for d in ./*/ ; do (cd "$d" && git add . && git commit -m 'Pushed by SAMANTHA!' && git push); done
