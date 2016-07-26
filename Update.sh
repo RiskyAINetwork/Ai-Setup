@@ -13,28 +13,14 @@ mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
 # All the stuff needed....
-install_part_1_mac(){
-  printf "%s\n${grn}We have found PART 1 of the installer!${end}\n"
-  printf "%s\n${mag}Installing Python.${end}\n"
-  brew install python
-  printf "%s(tput setaf 10)${yel}Finished installing Python.${end}\n"
-  printf "%s\n${mag}Installing Git.${end}\n"
-  brew install git
-  printf "%s$(tput setaf 10)${yel}Finished installing Git.${end}\n"
-  printf "%s${mag}Installing ESPEAK.${end}\n"
-  brew install espeak
-  printf "%s$(tput setaf 10)${yel}Finished installing ESPEAK.${end}\n"
-  printf "%s$(tput setaf 10)${cyn}Finished installing PART 1.${end}\n"
-  rm -rf PART 1
-}
-install_part_2(){
-  if [ -e "PART 2" ]; then
-    rm -rf PART 2
-    curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%202" > PART 2
+install_part_1(){
+  if [ -e "PART 1" ]; then
+    rm -rf PART 1
+    curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%201" > PART 1
   else
-    curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%202" > PART 2
+    curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%201" > PART 1
   fi
-  printf "%s\n${mag}Going to install PART 2.${end}\n"
+  printf "%s\n${mag}Going to install PART 1.${end}\n"
   git clone https://github.com/RiskyAINetwork/Samantha.git
   mv ./Samantha/* ./
   mkdir samantha
@@ -42,11 +28,11 @@ install_part_2(){
   rm -rf ./Samantha/samantha/
   mv ./Samantha ./samantha
   git clone https://github.com/RiskyAINetwork/Ai-DB.git
-  printf "%s$(tput setaf 10)${cyn}Finished installing PART 2.${end}\n"
+  printf "%s$(tput setaf 10)${cyn}Finished installing PART 1.${end}\n"
   rm -rf PART 2
 }
-install_part_3(){
-  printf "%s\n${mag}Going to install PART 3.${end}\n"
+install_part_2(){
+  printf "%s\n${mag}Going to install PART 2.${end}\n"
   printf "%s\n${mag}Going to move install files to housekeeping folder.${end}\n"
   curl -L "" > Update.sh
   rm -rf Download.sh
@@ -111,38 +97,8 @@ install_part_3(){
     curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/Setup.sh" > Start.sh
     printf "%s$(tput setaf 10)${yel}Finished making Folder and downloading files.${end}\n"
   fi
-  printf "%s$(tput setaf 10)${cyn}Finished installing PART 3.${end}\n"
-  rm -rf PART 3
-}
-install_part_4(){
-  if [ -e "PART 4" ]; then
-    rm -rf PART 4
-    curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%204" > PART 4
-  else
-    curl -L "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%204" > PART 4
-  fi
-  printf "%s\n${mag}Going to install PART 4.${end}\n"
-  pip install fuzzywuzzy
-  pip install jsondb
-  pip install jsondatabase
-  pip install nltk
-  pip install pymongo
-  pip install python-twitter
-  pip install textblob
-  pip install python-Levenshtein
-  pip install SpeechRecognition
-  printf "%s$(tput setaf 10)${cyn}Finished installing PART 4.${end}\n"
-  rm -rf PART 4
-  rm -rf INSTALL
-}
-application_run(){
-  sleep 3
-  printf "%s\n${mag}Going to start the AI.${end}\n"
-  cd
-  cd Samantha
-  sleep 2
-  clear
-  python application.py
+  printf "%s$(tput setaf 10)${cyn}Finished installing PART 2.${end}\n"
+  rm -rf PART 2
 }
 
 # Clean console incase it is dirty with other commands.
@@ -154,85 +110,40 @@ if [[ -d "Samantha" && ! -L "Samantha" ]]; then
   cd Samantha
   if [ -e "INSTALL" ]; then
     if [ -e "PART 1" ]; then
-      install_part_1_mac
+      install_part_1
       install_part_2
-      install_part_3
-      install_part_4
       application_run
     else
       if [ -e "PART 2" ]; then
         install_part_2
-        install_part_3
-        install_part_4
         application_run
       else
-        if [ -e "PART 3" ]; then
-          install_part_3
-          install_part_4
+        printf "%s\n${red}Could not find any of the install Parts!${end}\n"
+        if [ -e "PART 1" ]; then
+          install_part_1
+          install_part_2
           application_run
         else
-          if [ -e "PART 4" ]; then
-            install_part_4
+          if [ -e "PART 2" ]; then
+            install_part_2
             application_run
           else
-            printf "%s\n${red}Could not find any of the install Parts!${end}\n"
-            if [ -e "PART 1" ]; then
-              install_part_1_mac
-              install_part_2
-              install_part_3
-              install_part_4
-              application_run
-            else
-              if [ -e "PART 2" ]; then
-                install_part_2
-                install_part_3
-                install_part_4
-                application_run
-              else
-                if [ -e "PART 3" ]; then
-                  install_part_3
-                  install_part_4
-                  application_run
-                else
-                  if [ -e "PART 4" ]; then
-                    install_part_4
-                    application_run
-                  else
-                    application_run
-                  fi
-                fi
-              fi
-            fi
+            application_run
           fi
         fi
       fi
     fi
   else
     if [ -e "PART 1" ]; then
-      install_part_1_mac
+      install_part_1
       install_part_2
-      install_part_3
-      install_part_4
       application_run
     else
       if [ -e "PART 2" ]; then
         install_part_2
-        install_part_3
-        install_part_4
         application_run
       else
-        if [ -e "PART 3" ]; then
-          install_part_3
-          install_part_4
-          application_run
-        else
-          if [ -e "PART 4" ]; then
-            install_part_4
-            application_run
-          else
-            application_run
-          fi
-        fi
+        application_run
       fi
     fi
   fi
@@ -241,10 +152,8 @@ else
   cd Samantha
   curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/INSTALL" > INSTALL
   curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%201" > PART 1
-  install_part_1_mac
+  install_part_1
   install_part_2
-  install_part_3
-  install_part_4
   application_run
 fi
 fi
