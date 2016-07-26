@@ -406,4 +406,121 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     install_part_4
     application_run
   fi
+else
+  if [ "$(whoami)" != "root" ]; then
+    printf "%s\n${red}This script cannot run without root permissions, try: ./${0##*/}${end}\n "
+    exit 0
+  fi
+  printf "%s\n${blu}User is on LINUX...${end}\n"
+  cd ~/
+  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
+    cd Samantha
+    if [ -e "INSTALL" ]; then
+      if [ -e "PART 1" ]; then
+        request_permission
+        install_part_1_linux
+        install_part_2
+        install_part_3
+        install_part_4
+        application_run
+      else
+        if [ -e "PART 2" ]; then
+          request_permission
+          install_part_2
+          install_part_3
+          install_part_4
+          application_run
+        else
+          if [ -e "PART 3" ]; then
+            request_permission
+            install_part_3
+            install_part_4
+            application_run
+          else
+            if [ -e "PART 4" ]; then
+              request_permission
+              install_part_4
+              application_run
+            else
+              printf "%s\n${red}Could not find any of the install Parts!${end}\n"
+              if [ -e "PART 1" ]; then
+                request_permission
+                install_part_1_linux
+                install_part_2
+                install_part_3
+                install_part_4
+                application_run
+              else
+                if [ -e "PART 2" ]; then
+                  request_permission
+                  install_part_2
+                  install_part_3
+                  install_part_4
+                  application_run
+                else
+                  if [ -e "PART 3" ]; then
+                    request_permission
+                    install_part_3
+                    install_part_4
+                    application_run
+                  else
+                    if [ -e "PART 4" ]; then
+                      request_permission
+                      install_part_4
+                      application_run
+                    else
+                      application_run
+                    fi
+                  fi
+                fi
+              fi
+            fi
+          fi
+        fi
+      fi
+    else
+      if [ -e "PART 1" ]; then
+        request_permission
+        install_part_1_linux
+        install_part_2
+        install_part_3
+        install_part_4
+        application_run
+      else
+        if [ -e "PART 2" ]; then
+          request_permission
+          install_part_2
+          install_part_3
+          install_part_4
+          application_run
+        else
+          if [ -e "PART 3" ]; then
+            request_permission
+            install_part_3
+            install_part_4
+            application_run
+          else
+            if [ -e "PART 4" ]; then
+              request_permission
+              install_part_4
+              application_run
+            else
+              application_run
+            fi
+          fi
+        fi
+      fi
+    fi
+  else
+    request_permission
+    mkdir Samantha
+    cd Samantha
+    curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/INSTALL" > INSTALL
+    curl "https://raw.githubusercontent.com/RsikyAINetwork/Ai-Setup/master/PART%201" > PART 1
+    install_part_1_linux
+    install_part_2
+    install_part_3
+    install_part_4
+    application_run
+  fi
 fi
