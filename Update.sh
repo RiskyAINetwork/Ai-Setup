@@ -101,13 +101,7 @@ install_part_2(){
   rm -rf PART 2
 }
 application_run(){
-  sleep 3
-  printf "%s\n${mag}Going to start the AI.${end}\n"
-  cd
-  cd Samantha
-  sleep 2
-  clear
-  python application.py Finished.
+exit 0
 }
 # Clean console incase it is dirty with other commands.
 cd ~/
