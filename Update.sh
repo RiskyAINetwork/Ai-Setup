@@ -102,7 +102,6 @@ install_part_2(){
 }
 
 # Clean console incase it is dirty with other commands.
-clear
 cd ~/
 cd
 rm -rf Samantha
