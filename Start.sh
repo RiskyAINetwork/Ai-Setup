@@ -7,14 +7,6 @@
 ###
 # Start this check long before everything to stop errors
 ###
-if [ -e "start-new.sh" ]; then
-  if [ -e "start.sh" ]; then
-    rm -rf start.sh
-    mv ./start-new.sh ./start.sh
-  else
-    mv ./start-new.sh ./start.sh
-  fi
-fi
 red=$'\e[1;31m'
 grn=$'\e[1;32m'
 yel=$'\e[1;33m'
