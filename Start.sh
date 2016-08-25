@@ -23,8 +23,8 @@ mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
 cd ~/
-old="check.sh"
-new="newerer.sh"
+old="start.sh"
+new="check.sh"
 if [ -e "check.sh" ]; then
   rm -rf check.sh
   curl -sL "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/Start.sh" > check.sh
