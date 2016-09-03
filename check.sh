@@ -104,15 +104,6 @@ fresh_mac(){
   mv ./Samantha ./samantha &> /dev/null
   echo -e " [+] Main file is now installed."
   echo -e " [+] Core is now installed."
-  pip install fuzzywuzzy &> /dev/null
-  pip install jsondatabase &> /dev/null
-  pip install jsondb &> /dev/null
-  pip install nltk &> /dev/null
-  pip install pymongo &> /dev/null
-  pip install python-twitter &> /dev/null
-  pip install textblob &> /dev/null
-  pip install python-Levenshtein &> /dev/null
-  pip install SpeechRecognition &> /dev/null
   #INSTALL THE DB
   echo -n "Installing DB"
   dot 45
@@ -131,7 +122,6 @@ fresh_linux(){
   dot 35
   sudo apt-get install -y python &> /dev/null
   sudo apt-get install -y pip &> /dev/null
-  sudo apt-get install -y python-pip &> /dev/null
   sudo apt-get install -y git &> /dev/null
   sudo apt-get install -y espeak &> /dev/null
   sudo apt-get install -y espeak python-espeak &> /dev/null
@@ -150,15 +140,6 @@ fresh_linux(){
   mv ./Samantha ./samantha &> /dev/null
   echo -e " [+] Main file is now installed."
   echo -e " [+] Core is now installed."
-  pip install fuzzywuzzy &> /dev/null
-  pip install jsondatabase &> /dev/null
-  pip install jsondb &> /dev/null
-  pip install nltk &> /dev/null
-  pip install pymongo &> /dev/null
-  pip install python-twitter &> /dev/null
-  pip install textblob &> /dev/null
-  pip install python-Levenshtein &> /dev/null
-  pip install SpeechRecognition &> /dev/null
   #INSTALL THE DB
   echo -n "Installing DB"
   dot 45
