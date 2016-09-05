@@ -14,7 +14,7 @@ blu=$'\e[1;34m'
 mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
-old="$0"
+old="setup.sh"
 new="new.sh"
 if [ $0 == "new.sh" ]; then
   mv $0 ./setup.sh
