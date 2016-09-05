@@ -29,51 +29,25 @@ check_files(){
   wget -q --spider http://google.com
   if [ $? -eq 0 ]; then
       internet_status=" [+] Internet: ${grn}Yes${end}"
-      if [ -e "new.sh" ]; then
-        echo "new.sh exists"
-        rm -rf new.sh
-        echo "removed new.sh"
-        curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > new.sh
-        echo "downloaded new.sh"
-        echo "${red}HERE${end}"
-        cat new.sh
-        if [ "$old" = "$new" ]; then
-          status=" [+] File Match: ${cyn}This file has not been altered.${end}"
-        else
-          status=" [+] File Match: ${cyn}This file has been changed. Downloading fresh one.${end}"
-          echo "deleting current file"
-          rm -rf $0
-          if [ -e "new.sh" ]; then
-            rm -rf new.sh
-            echo "new.sh still exists. deleted it"
-            curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > $0
-            echo "downloaded new file."
-          else
-            curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > $0
-            echo "downloaded new file."
-          fi
-        fi
+      echo "new.sh does not exist."
+      curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > new.sh
+      echo "downloaded new.sh"
+      if [ "$old" = "$new" ]; then
+        status=" [+] File Match: ${cyn}This file has not been altered.${end}"
       else
-        echo "new.sh does not exist."
-        curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > new.sh
-        echo "downloaded new.sh"
-        if [ "$old" = "$new" ]; then
-          status=" [+] File Match: ${cyn}This file has not been altered.${end}"
+        status=" [+] File Match: ${cyn}This file has been changed. Downloading fresh one.${end}"
+        echo "deleteing current file."
+        rm -rf $0
+        echo "check if new.sh exists."
+        if [ -e "new.sh" ]; then
+          rm -rf new.sh
+          echo "new.sh exists... deleted it."
+          curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > $0
+          echo "downloaded new file and set it to current name."
+          echo "current name: $0"
         else
-          status=" [+] File Match: ${cyn}This file has been changed. Downloading fresh one.${end}"
-          echo "deleteing current file."
-          rm -rf $0
-          echo "check if new.sh exists."
-          if [ -e "new.sh" ]; then
-            rm -rf new.sh
-            echo "new.sh exists... deleted it."
-            curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > $0
-            echo "downloaded new file and set it to current name."
-            echo "current name: $0"
-          else
-            curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > $0
-            echo "downloaded new file. New.sh could not be found."
-          fi
+          curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > $0
+          echo "downloaded new file. New.sh could not be found."
         fi
       fi
   else
