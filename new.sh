@@ -15,6 +15,7 @@ mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
 old="$0"
+new="new.sh"
 if [ $0 == "new.sh" ]; then
   mv $0 ./setup.sh
   echo "${red}Please run ./setup.sh\n We had to rename the file as we need to run checks.${end}"
