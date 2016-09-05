@@ -24,11 +24,11 @@ file_checker(){
   if [ -e "new.sh" ]; then
     rm -rf new.sh
     echo "${grn}Found new.sh, deleted it, downloading new one.${end}"
-    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > new.sh
+    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > new.sh
     file_check
   else
     echo "${grn}Could not find new.sh, downloading new one.${end}"
-    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > new.sh
+    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > new.sh
     file_check
   fi
 }
@@ -44,7 +44,7 @@ file_check(){
       echo "${grn}Deleted new.sh, delete $0, download new $0${end}"
       rm -rf $0
       echo "${mag}current file: $0, deleted $0${end}"
-      curl -L curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > $0
+      curl -L curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > $0
       echo "${yel}new file is $0${end}"
     else
       echo "${red}did not set this up${end}"
