@@ -14,7 +14,6 @@ blu=$'\e[1;34m'
 mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
-cd ~/
 old="$0"
 if [ $0 == "new.sh" ]; then
   mv ./$0 ./setup.sh
@@ -36,6 +35,8 @@ check_files(){
         echo "removed new.sh"
         curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > new.sh
         echo "downloaded new.sh"
+        echo "${red}HERE${end}"
+        cat new.sh
         if [ "$old" = "$new" ]; then
           status=" [+] File Match: ${cyn}This file has not been altered.${end}"
         else
