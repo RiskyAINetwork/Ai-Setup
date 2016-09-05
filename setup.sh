@@ -29,13 +29,16 @@ check_files(){
   wget -q --spider http://google.com
   if [ $? -eq 0 ]; then
       internet_status=" [+] Internet: ${grn}Yes${end}"
+      echo internet_status
       echo "new.sh does not exist."
       curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/setup.sh" > new.sh
       echo "downloaded new.sh"
       if [ "$old" = "$new" ]; then
         status=" [+] File Match: ${cyn}This file has not been altered.${end}"
+        echo status
       else
         status=" [+] File Match: ${cyn}This file has been changed. Downloading fresh one.${end}"
+        echo status
         echo "deleteing current file."
         rm -rf $0
         echo "check if new.sh exists."
@@ -52,6 +55,7 @@ check_files(){
       fi
   else
       internet_status=" [+] OS: ${red}No${end}"
+      echo internet_status
   fi
 }
 check_files
