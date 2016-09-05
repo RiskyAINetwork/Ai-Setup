@@ -45,7 +45,7 @@ file_check(){
       echo "${grn}Deleted new.sh, delete $0, download new $0${end}"
       rm -rf $0
       echo "${mag}current file: $0, deleted $0${end}"
-      curl -L curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > $0
+      curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > $0
       echo "${yel}new file is $0${end}"
     else
       echo "${red}did not set this up${end}"
