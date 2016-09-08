@@ -107,7 +107,7 @@ fresh_mac(){
   pip install fuzzywuzzy &> /dev/null
   pip uninstall jsondatabase &> /dev/null
   pip uninstall jsondb &> /dev/null
-  pip install git+https://github.com/crazywolf132/jsondb.git
+  pip install git+https://github.com/crazywolf132/jsondb.git &> /dev/null
   pip install nltk &> /dev/null
   pip install pymongo &> /dev/null
   pip install python-twitter &> /dev/null
@@ -154,7 +154,7 @@ fresh_linux(){
   pip install fuzzywuzzy &> /dev/null
   pip uninstall jsondatabase &> /dev/null
   pip uninstall jsondb &> /dev/null
-  pip install git+https://github.com/crazywolf132/jsondb.git
+  pip install git+https://github.com/crazywolf132/jsondb.git &> /dev/null
   pip install nltk &> /dev/null
   pip install pymongo &> /dev/null
   pip install python-twitter &> /dev/null
