@@ -1,3 +1,15 @@
+clrs(){
+    if [ "$(uname)" == "Darwin" ]; then
+        clear
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        clear
+    elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+        cls
+    else
+        clear
+    fi
+}
+clrs
 #!/bin/bash
 # CHARS... 68
 # .......................................[COMPLETE] = 49 CHARS
@@ -7,7 +19,6 @@
 ###
 # Start this check long before everything to stop errors
 ###
-clear
 red=$'\e[1;31m'
 grn=$'\e[1;32m'
 yel=$'\e[1;33m'
@@ -15,58 +26,263 @@ blu=$'\e[1;34m'
 mag=$'\e[1;35m'
 cyn=$'\e[1;36m'
 end=$'\e[0m'
-old="setup.sh"
-new="new.sh"
-if [ $0 == "new.sh" ]; then
-  mv $0 ./setup.sh
-  echo "${red}Please run ./setup.sh\n We had to rename the file as we need to run checks.${end}"
+install(){
+  extra
+}
+helpinfo(){
+  extra
+}
+uninstall(){
+  extra
+}
+error(){
+  extra
+}
+download(){
+  extra
+}
+update(){
+  extra
+}
+status(){
+  extra
+}
+info(){
+  echo -n "Collecting INFO"
+  dot 43
+  echo -e " [+] Instruction: ${mag}$1${end}"
+  if [ "$(uname)" == "Darwin" ]; then
+    echo -e " [+] OS: ${yel}MAC${end}"
+  elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    echo -e " [+] OS: ${yel}LINUX${end}"
+  fi
+  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
+    echo -e " [+] Installed: ${grn}YES${end}"
+  else
+    echo -e " [+] Installed: ${red}NO${end}"
+  fi
+  if [ "$(whoami)" = "root" ]; then
+    echo -e " [+] Permission Level: ${blu}w00t w00t w3 g0t r00t!${end}"
+  else
+    echo -e " [+] Permission Level: ${blu}PLEB${end}"
+  fi
+}
+internet(){
+  extra
+}
+connection(){
+  extra
+}
+run(){
+  extra
+}
+info_advanced(){
+  echo -n "Collecting INFO"
+  dot 43
+  echo -e " [+] Instruction: ${mag}$1${end}"
+  if [ "$(uname)" == "Darwin" ]; then
+    echo -e " [+] OS: ${yel}MAC${end}"
+  elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    echo -e " [+] OS: ${yel}LINUX${end}"
+  fi
+  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
+    echo -e " [+] Installed: ${grn}YES${end}"
+  else
+    echo -e " [+] Installed: ${red}NO${end}"
+  fi
+  if [ "$(whoami)" = "root" ]; then
+    echo -e " [+] Permission Level: ${blu}w00t w00t w3 g0t r00t!${end}"
+    if cmp -s "$old" "$new" ; then
+       echo -e " [+] File Match: ${cyn}Match.${end}"
+    else
+       echo -e " [+] File Match: ${red}NO MATCH${end}"
+       file_download
+    fi
+  else
+    echo -e " [+] Permission Level: ${blu}PLEB${end}"
+    echo -e " [+] File Match: ${cyn}CANNOT CHECK${end}"
+  fi
+}
+logo(){
+cat <<'END'
+          .                                                      .
+        .n                   .                 .                  n.
+  .   .dP                  dP                   9b                 9b.    .
+ 4    qXb         .       dX                     Xb       .        dXp     t
+dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
+9XXb._       _.dXXXXb dXXXXbo.                 .odXXXXb dXXXXb._       _.dXXP
+ 9XXXXXXXXXXXXXXXXXXXVXXXXXXXXOo.           .oOXXXXXXXXVXXXXXXXXXXXXXXXXXXXP
+  `9XXXXXXXXXXXXXXXXXXXXX'~   ~`OOO8b   d8OOO'~   ~`XXXXXXXXXXXXXXXXXXXXXP'
+    `9XXXXXXXXXXXP' `9XX'          `98v8P'          `XXP' `9XXXXXXXXXXXP'
+        ~~~~~~~       9X.          .db|db.          .XP       ~~~~~~~
+                        )b.  .dbo.dP'`v'`9b.odb.  .dX(
+                      ,dXXXXXXXXXXXb     dXXXXXXXXXXXb.
+                     dXXXXXXXXXXXP'   .   `9XXXXXXXXXXXb
+                    dXXXXXXXXXXXXb   d|b   dXXXXXXXXXXXXb
+                    9XXb'   `XXXXXb.dX|Xb.dXXXXX'   `dXXP
+                     `'      9XXXXXX(   )XXXXXXP      `'
+                              XXXX X.`v'.X XXXX
+                              XP^X'`b   d'`X^XX
+                              X. 9  `   '  P )X
+                              `b  `       '  d'
+                               `             '
+END
+}
+if [ -z $1 ]
+then
+	echo -e "${red}Please use the script along with a valid instruction.\nexample: ./$0 install${end}"
+exit 1
+fi
+dot () {
+	for ((i = 0; i < $1; i++)); do echo -n "."; sleep 0.02; done; echo -e '[\033[00;32mCOMPLETE\033[00;0m]';sleep 0.6
+}
+doterror(){
+  for ((i = 0; i < $1; i++)); do echo -n "."; sleep 0.02; done; echo -e "[${red}ERROR${end}]"
+}
+showMenu(){
+
+echo "<========================================>"
+echo "    Tasks"
+echo "<========================================>"
+echo "[1] Install"
+echo "[2] Uninstall"
+echo
+echo "[3] Fix Error"
+echo "[4] Run"
+echo
+echo "[5] Download All Plugins"
+echo "[6] Update"
+echo "[7] Status"
+echo "[8] Internet Check"
+echo
+echo "[0] exit"
+echo "<========================================>"
+
+read -p "Please Select A Number: " mc
+return $mc
+}
+
+extra(){
+while [[ "$m" != "0" ]]
+do
+    if [[ "$m" == "1" ]]; then
+        install
+    elif [[ "$m" == "2" ]]; then
+        uninstall
+    elif [[ "$m" == "3" ]]; then
+        error
+    elif [[ "$m" == "4" ]]; then
+        run
+    elif [[ "$m" == "5" ]]; then
+        download
+    elif [[ "$m" == "6" ]]; then
+        update
+    elif [[ "$m" == "7" ]]; then
+        info_advanced
+    elif [[ "$m" == "8" ]]; then
+        internet
+    fi
+    echo
+    echo
+    logo
+    showMenu
+    m=$?
+done
+
+exit 0;
+}
+
+if [ $1 == "install" ]; then
+  logo
+  install
+elif [ $1 == "setup" ]; then
+  logo
+  install
+elif [ $1 == "-i" ]; then
+  logo
+  install
+elif [ $1 == "help" ]; then
+  logo
+  helpinfo
+elif [ $1 == "-h" ]; then
+  logo
+  helpinfo
+elif [ $1 == "menu" ]; then
+  logo
+  extra
+elif [ $1 == "gui" ]; then
+  logo
+  extra
+elif [ $1 == "-m" ]; then
+  logo
+  extra
+elif [ $1 == "uninstall" ]; then
+  logo
+  uninstall
+elif [ $1 == "remove" ]; then
+  logo
+  uninstall
+elif [ $1 == "delete" ]; then
+  logo
+  uninstall
+elif [ $1 == "-u" ]; then
+  logo
+  uninstall
+elif [ $1 == "error" ]; then
+  logo
+  error
+elif [ $1 == "fix" ]; then
+  logo
+  error
+elif [ $1 == "-f" ]; then
+  logo
+  error
+elif [ $1 == "download" ]; then
+  logo
+  download
+elif [ $1 == "-d" ]; then
+  logo
+  download
+elif [ $1 == "update" ]; then
+  logo
+  update
+elif [ $1 == "-u" ]; then
+  logo
+  update
+elif [ $1 == "status" ]; then
+  logo
+  status
+elif [ $1 == "check" ]; then
+  logo
+  status
+elif [ $1 == "-s" ]; then
+  logo
+  status
+elif [ $1 == "info" ]; then
+  logo
+  info_advanced
+elif [ $1 == "internet" ]; then
+  logo
+  internet
+elif [ $1 == "connection" ]; then
+  logo
+  connection
+elif [ $1 == "-c" ]; then
+  logo
+  connection
+elif [ $1 == "run" ]; then
+  logo
+  run
+elif [ $1 == "start" ]; then
+  logo
+  run
+elif [ $1 == "begin" ]; then
+  logo
+  run
+elif [ $1 == "-r" ]; then
+  logo
+  run
+else
+  echo "please use -m"
   exit 0
 fi
-file_checker(){
-  if [ -e "new.sh" ]; then
-    rm -rf new.sh
-    echo "${grn}Found new.sh, deleted it, downloading new one.${end}"
-    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > new.sh
-    file_check
-  else
-    echo "${grn}Could not find new.sh, downloading new one.${end}"
-    curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > new.sh
-    file_check
-  fi
-}
-file_check(){
-  if [ "$old" = "$new" ]; then
-    status=" [+] File Match: ${cyn}This file has not been altered.${end}"
-    echo "$status"
-  else
-    status=" [+] File Match: ${cyn}This file has been changed. Downloading fresh one.${end}"
-    echo "$status"
-    if [ -e "new.sh" ]; then
-      rm -rf new.sh
-      echo "${grn}Deleted new.sh, delete $0, download new $0${end}"
-      rm -rf $0
-      echo "${mag}current file: $0, deleted $0${end}"
-      curl -L "https://raw.githubusercontent.com/crazywolf132/Ai-Setup/master/new.sh" > $0
-      echo "${yel}new file is $0${end}"
-    else
-      echo "${red}did not set this up${end}"
-    fi
-  fi
-}
-check_files(){
-  #Check for internet first
-    #Download file, run checker
-    ##else
-    #Could not run, set status to false.
-    ## INTERNET CHECK
-  wget -q --spider http://google.com
-  if [ $? -eq 0 ]; then
-      internet_status=" [+] Internet: ${grn}Yes${end}"
-      file_checker
-  else
-      internet_status=" [+] OS: ${red}No${end}"
-  fi
-}
-check_files
-echo "$internet_status"
-echo "$status"
