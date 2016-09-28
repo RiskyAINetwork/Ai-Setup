@@ -316,7 +316,7 @@ error(){
 update(){
 if [-e "Asher.sh"]; then
   rm -rf Asher.sh
-  curl -L "https://raw.github.com/crazywolf132/Asher/master/Asher.sh" > Asher.sh
+  curl -L "https://raw.github.com/crazywolf132/Ai-Setup/master/Asher.sh" > Asher.sh
 fi
 }
 run(){
