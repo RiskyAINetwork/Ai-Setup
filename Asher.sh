@@ -523,7 +523,7 @@ status(){
       file_download
     fi
   else
-
+  filesmatch="NO ROOT"
   fi
 }
 helpinfo(){
