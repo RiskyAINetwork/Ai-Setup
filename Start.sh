@@ -530,16 +530,16 @@ runold(){
   fi
 }
 
-#if [ -z $1 ]
-#then
-#	echo -e "${red}Please use the script along with a valid instruction.\nexample: ./$0 install\nDo not use anything after it.${end}"
-#exit 1
-#fi
+if [ -z $1 ]
+then
+	echo -e "${red}Please use the script along with a valid instruction.\nexample: ./$0 install${end}"
+exit 1
+fi
 dot () {
 	for ((i = 0; i < $1; i++)); do echo -n "."; sleep 0.02; done; echo -e '[\033[00;32mCOMPLETE\033[00;0m]';sleep 0.6
 }
 doterror(){
-  for ((i = 0; i < $1; i++)); do echo -n "."; sleep 0.02; done; echo -e "[${red}ERROR${end}]";sleep 0.6
+  for ((i = 0; i < $1; i++)); do echo -n "."; sleep 0.02; done; echo -e "[${red}ERROR${end}]"
 }
 ##LEAVE
 if [ $1 == "install" ]; then
