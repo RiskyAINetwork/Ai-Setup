@@ -578,6 +578,18 @@ helpinfo(){
   echo "${cyn}4${end}           - Installs knollege base of Asher."
 
 }
+uninstall(){
+  if [[ -d "Asher" && ! -L "Asher" ]]; then
+    echo -n "Uninstalling AI"
+    dot 43
+    rm -rf Asher &> /dev/null
+    echo " [+] Removed AI"
+  else
+    echo -n "Uninstalling AI"
+    doterror 43
+    echo " [+] There was nothing to uninstall"
+  fi
+}
 
 logo(){
 cat <<'END'
