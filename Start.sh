@@ -105,8 +105,6 @@ fresh_mac(){
   echo -e " [+] Main file is now installed."
   echo -e " [+] Core is now installed."
   pip install fuzzywuzzy &> /dev/null
-  pip uninstall jsondatabase &> /dev/null
-  pip uninstall jsondb &> /dev/null
   pip install git+https://github.com/crazywolf132/jsondb.git &> /dev/null
   pip install nltk &> /dev/null
   pip install pymongo &> /dev/null
@@ -152,8 +150,6 @@ fresh_linux(){
   echo -e " [+] Main file is now installed."
   echo -e " [+] Core is now installed."
   pip install fuzzywuzzy &> /dev/null
-  pip uninstall jsondatabase &> /dev/null
-  pip uninstall jsondb &> /dev/null
   pip install git+https://github.com/crazywolf132/jsondb.git &> /dev/null
   pip install nltk &> /dev/null
   pip install pymongo &> /dev/null
