@@ -56,8 +56,8 @@ END
 fresh_mac(){
   echo -n "Getting ready to write files"
   dot 30
-  mkdir Samantha
-  cd Samantha
+  mkdir Asher
+  cd Asher
   echo " [+] Made Folder."
   echo " [+] Entered Folder."
   #CHECK FOR HOMEBREW.
@@ -96,12 +96,12 @@ fresh_mac(){
   #INSTALL THE AI
   echo -n "Installing core"
   dot 43
-  git clone https://github.com/crazywolf132/Samantha.git &> /dev/null
-  mv ./Samantha/* ./ &> /dev/null
-  mkdir samantha &> /dev/null
-  mv ./Samantha/samantha/* ./samantha &> /dev/null
-  rm -rf ./Samantha/samantha &> /dev/null
-  mv ./Samantha ./samantha &> /dev/null
+  git clone https://github.com/crazywolf132/Asher.git &> /dev/null
+  mv ./Asher/* ./ &> /dev/null
+  mkdir asher &> /dev/null
+  mv ./Asher/asher/* ./asher &> /dev/null
+  rm -rf ./Asher/asher &> /dev/null
+  mv ./Asher ./asher &> /dev/null
   echo -e " [+] Main file is now installed."
   echo -e " [+] Core is now installed."
   pip install fuzzywuzzy &> /dev/null
@@ -123,8 +123,8 @@ fresh_mac(){
 fresh_linux(){
   echo -n "Getting ready to write files"
   dot 30
-  mkdir Samantha
-  cd Samantha
+  mkdir Asher
+  cd Asher
   echo " [+] Made Folder."
   echo " [+] Entered Folder."
   #Install all the shit it needs.
@@ -143,12 +143,12 @@ fresh_linux(){
   echo " [+] Python3 is now installed."
   echo -n "Installing core"
   dot 43
-  git clone https://github.com/crazywolf132/Samantha.git &> /dev/null
-  mv ./Samantha/* ./ &> /dev/null
-  mkdir samantha &> /dev/null
-  mv ./Samantha/samantha/* ./samantha &> /dev/null
-  rm -rf ./Samantha/samantha &> /dev/null
-  mv ./Samantha ./samantha &> /dev/null
+  git clone https://github.com/crazywolf132/Asher.git &> /dev/null
+  mv ./Asher/* ./ &> /dev/null
+  mkdir asher &> /dev/null
+  mv ./Asher/asher/* ./asher &> /dev/null
+  rm -rf ./Asher/asher &> /dev/null
+  mv ./Asher ./asher &> /dev/null
   echo -e " [+] Main file is now installed."
   echo -e " [+] Core is now installed."
   pip install fuzzywuzzy &> /dev/null
@@ -191,7 +191,7 @@ infoBasic(){
   elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo -e " [+] OS: ${yel}LINUX${end}"
   fi
-  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
+  if [[ -d "Asher" && ! -L "Asher" ]]; then
     echo -e " [+] Installed: ${grn}YES${end}"
   else
     echo -e " [+] Installed: ${red}NO${end}"
@@ -243,7 +243,7 @@ infoAdvanced(){
     echo -e " [+] File Match: ${cyn}CANNOT CHECK${end}"
   fi
   ## INSTALL CHECKER
-  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
+  if [[ -d "Asher" && ! -L "Asher" ]]; then
     echo -e " [+] Installed: ${grn}YES${end}"
   else
     echo -e " [+] Installed: ${red}NO${end}"
@@ -269,15 +269,15 @@ infoAdvanced(){
 
 install(){
   if [ "$(uname)" == "Darwin" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      rm -rf Samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      rm -rf Asher
       fresh_mac
     else
       fresh_mac
     fi
   elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      rm -rf Samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      rm -rf Asher
       fresh_linux
     else
       fresh_linux
@@ -286,15 +286,15 @@ install(){
 }
 error(){
   if [ "$(uname)" == "Darwin" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      rm -rf Samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      rm -rf Asher
       fresh_mac
     else
       fresh_mac
     fi
   elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      rm -rf Samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      rm -rf Asher
       fresh_linux
     else
       fresh_linux
@@ -303,26 +303,26 @@ error(){
 }
 download(){
   if [ "$(uname)" == "Darwin" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      cd Samantha
-      cd samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      cd Asher
+      cd asher
       cd plugins
       ## DOWNLOAD THEM ALL!
     else
       fresh_mac
-      cd samantha
+      cd asher
       cd plugins
       ## DOWNLOAD THEM ALL!
     fi
   elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      cd Samantha
-      cd samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      cd Asher
+      cd asher
       cd plugins
         ## DOWNLOAD THEM ALL!
     else
       fresh_linux
-      cd samantha
+      cd asher
       cd plugins
         ## DOWNLOAD THEM ALL!
     fi
@@ -330,24 +330,24 @@ download(){
 }
 update(){
   if [ "$(uname)" == "Darwin" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      cd Samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      cd Asher
     else
       fresh_mac
     fi
   elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-      cd Samantha
+    if [[ -d "Asher" && ! -L "Asher" ]]; then
+      cd Asher
     else
       fresh_linux
     fi
   fi
 }
 uninstall(){
-  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
+  if [[ -d "Asher" && ! -L "Asher" ]]; then
     echo -n "Uninstalling AI"
     dot 43
-    rm -rf Samantha &> /dev/null
+    rm -rf Asher &> /dev/null
     echo " [+] Removed AI"
   else
     echo -n "Uninstalling AI"
@@ -356,21 +356,21 @@ uninstall(){
   fi
 }
 check(){
-  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-    cd Samantha
+  if [[ -d "Asher" && ! -L "Asher" ]]; then
+    cd Asher
     if [ -e "application.py" ]; then
-      if [[ -d "samantha" && ! -L "samantha" ]]; then
+      if [[ -d "asher" && ! -L "asher" ]]; then
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           dot 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
@@ -379,32 +379,32 @@ check(){
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
         fi
       fi
     else
-      if [[ -d "samantha" && ! -L "samantha" ]]; then
+      if [[ -d "asher" && ! -L "asher" ]]; then
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
@@ -413,14 +413,14 @@ check(){
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
@@ -430,21 +430,21 @@ check(){
   else
     echo -n "Checking AI Integrity"
     doterror 37
-    echo -e " [+] Samantha: ${red}MISSING${end}"
+    echo -e " [+] Asher: ${red}MISSING${end}"
     echo -e " [+] Core files: ${red}MISSING${end}"
     echo -e " [+] DB: ${red}MISSING${end}"
     echo -e " [+] Main file: ${red}MISSING${end}"
   fi
 }
 run(){
-  if [[ -d "Samantha" && ! -L "Samantha" ]]; then
-    cd Samantha
+  if [[ -d "Asher" && ! -L "Asher" ]]; then
+    cd Asher
     if [ -e "application.py" ]; then
-      if [[ -d "samantha" && ! -L "samantha" ]]; then
+      if [[ -d "asher" && ! -L "asher" ]]; then
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           dot 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
@@ -454,7 +454,7 @@ run(){
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
@@ -463,32 +463,32 @@ run(){
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${grn}FOUND${end}"
         fi
       fi
     else
-      if [[ -d "samantha" && ! -L "samantha" ]]; then
+      if [[ -d "asher" && ! -L "asher" ]]; then
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${grn}FOUND${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
@@ -497,14 +497,14 @@ run(){
         if [[ -d "Ai-DB" && ! -L "Ai-DB" ]]; then
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${grn}FOUND${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
         else
           echo -n "Checking AI Integrity"
           doterror 37
-          echo -e " [+] Samantha: ${grn}FOUND${end}"
+          echo -e " [+] Asher: ${grn}FOUND${end}"
           echo -e " [+] Core files: ${red}MISSING${end}"
           echo -e " [+] DB: ${red}MISSING${end}"
           echo -e " [+] Main file: ${red}MISSING${end}"
@@ -514,15 +514,15 @@ run(){
   else
     echo -n "Checking AI Integrity"
     doterror 37
-    echo -e " [+] Samantha: ${red}MISSING${end}"
+    echo -e " [+] Asher: ${red}MISSING${end}"
     echo -e " [+] Core files: ${red}MISSING${end}"
     echo -e " [+] DB: ${red}MISSING${end}"
     echo -e " [+] Main file: ${red}MISSING${end}"
   fi
 }
 runold(){
-  if [[ -d "Samantha" && ! -L "Samanta" ]]; then
-    cd Samantha
+  if [[ -d "Asher" && ! -L "Asher" ]]; then
+    cd Asher
     echo -n "Starting AI"
     dot 47
     python application.py
